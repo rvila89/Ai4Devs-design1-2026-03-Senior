@@ -10,6 +10,8 @@ El **Nivel 2 (Container)** desglosa el interior del sistema ATS LTI en sus conte
 
 El **Nivel 3 (Component)** profundiza en el **Servicio de Evaluación**, el contenedor de mayor complejidad al integrar los tres flujos de UC-02 (scoring IA, scorecards estructurados y decisiones trazadas). Se muestran sus componentes internos: los controladores REST, los gestores de dominio, los repositorios de datos y los adaptadores hacia el Servicio de IA y el bus de eventos. Las decisiones de diseño más relevantes son la separación entre lógica de aplicación y acceso a datos mediante el patrón Repository, y el uso de eventos de dominio para notificar cambios de etapa al resto del sistema.
 
+El **Nivel 4 (Code)** desciende al código fuente del componente **Matching Service**, el núcleo de la funcionalidad de matching IA explicable. Se representan las clases, interfaces, DTOs y entidades de dominio que conforman este componente, siguiendo principios de Clean Architecture y Domain-Driven Design. Las decisiones de diseño incluyen: inyección de dependencias para facilitar testing, Value Objects inmutables para los resultados de matching, y el patrón Strategy para permitir múltiples algoritmos de scoring.
+
 ---
 
 ## Nivel 1 – System Context
@@ -226,6 +228,298 @@ Rel(event_publisher, message_bus, "Publica eventos de dominio", "AWS SDK")
 
 @enduml
 ```
+
+---
+
+## Nivel 4 – Code (Matching Service)
+
+El diagrama de código detalla la estructura interna del componente **Matching Service**, responsable de orquestar el scoring y matching de candidatos con IA explicable. Se muestran las clases principales, sus relaciones y responsabilidades.
+
+```plantuml
+@startuml "C4_Code_MatchingService"
+!theme plain
+skinparam linetype ortho
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
+title Code Diagram – Matching Service (UC-02)
+
+package "API Layer" #DDDDDD {
+    class MatchingController <<REST Controller>> {
+        - matchingService: IMatchingService
+        --
+        + getMatchingScore(applicationId: string): MatchingResultDTO
+        + getRankingByVacancy(vacancyId: string): MatchingResultDTO[]
+        + refreshMatching(applicationId: string): MatchingResultDTO
+    }
+    
+    class MatchingResultDTO <<DTO>> {
+        + applicationId: string
+        + candidateId: string
+        + vacancyId: string
+        + score: number
+        + explanation: ExplanationDTO
+        + generatedAt: Date
+    }
+    
+    class ExplanationDTO <<DTO>> {
+        + skillsMatch: SkillMatchDTO[]
+        + experienceScore: number
+        + educationScore: number
+        + overallSummary: string
+        + strengthsList: string[]
+        + gapsList: string[]
+    }
+    
+    class SkillMatchDTO <<DTO>> {
+        + skillName: string
+        + required: boolean
+        + candidateLevel: string
+        + matchPercentage: number
+    }
+}
+
+package "Domain Layer" #E8F4E8 {
+    interface IMatchingService <<interface>> {
+        + calculateMatching(application: Application): Promise<MatchingResult>
+        + getMatchingResult(applicationId: ApplicationId): Promise<MatchingResult>
+        + getRankingForVacancy(vacancyId: VacancyId): Promise<MatchingResult[]>
+        + invalidateCache(vacancyId: VacancyId): Promise<void>
+    }
+    
+    class MatchingService <<Domain Service>> {
+        - matchingRepository: IMatchingRepository
+        - iaAdapter: IIAAdapter
+        - scoringStrategy: IScoringStrategy
+        - cacheManager: ICacheManager
+        --
+        + calculateMatching(application: Application): Promise<MatchingResult>
+        + getMatchingResult(applicationId: ApplicationId): Promise<MatchingResult>
+        + getRankingForVacancy(vacancyId: VacancyId): Promise<MatchingResult[]>
+        + invalidateCache(vacancyId: VacancyId): Promise<void>
+        - buildMatchingRequest(application: Application): MatchingRequest
+        - mapToMatchingResult(response: IAResponse): MatchingResult
+    }
+    
+    interface IScoringStrategy <<interface>> {
+        + computeScore(candidate: Candidate, vacancy: Vacancy): ScoringInput
+    }
+    
+    class WeightedScoringStrategy <<Strategy>> {
+        - skillWeight: number
+        - experienceWeight: number
+        - educationWeight: number
+        --
+        + computeScore(candidate: Candidate, vacancy: Vacancy): ScoringInput
+    }
+    
+    class MLScoringStrategy <<Strategy>> {
+        - modelEndpoint: string
+        --
+        + computeScore(candidate: Candidate, vacancy: Vacancy): ScoringInput
+    }
+}
+
+package "Domain Model" #FFF8E1 {
+    class MatchingResult <<Entity>> {
+        - id: MatchingId
+        - applicationId: ApplicationId
+        - score: Score
+        - explanation: Explanation
+        - generatedAt: Date
+        - status: MatchingStatus
+        --
+        + isValid(): boolean
+        + needsRefresh(): boolean
+        + toDTO(): MatchingResultDTO
+    }
+    
+    class Score <<Value Object>> {
+        - value: number
+        - confidence: number
+        --
+        + getValue(): number
+        + getConfidence(): number
+        + isHighConfidence(): boolean
+        {static} + create(value: number, confidence: number): Score
+    }
+    
+    class Explanation <<Value Object>> {
+        - skillsAnalysis: SkillAnalysis[]
+        - experienceScore: number
+        - educationScore: number
+        - summary: string
+        - strengths: string[]
+        - gaps: string[]
+        --
+        + getTopStrengths(n: number): string[]
+        + getTopGaps(n: number): string[]
+        + toDTO(): ExplanationDTO
+    }
+    
+    class SkillAnalysis <<Value Object>> {
+        - skillName: string
+        - required: boolean
+        - candidateLevel: SkillLevel
+        - matchPercentage: number
+        --
+        + isCriticalGap(): boolean
+        + toDTO(): SkillMatchDTO
+    }
+    
+    enum MatchingStatus <<Enumeration>> {
+        PENDING
+        CALCULATED
+        FAILED
+        EXPIRED
+    }
+    
+    enum SkillLevel <<Enumeration>> {
+        NONE
+        BEGINNER
+        INTERMEDIATE
+        ADVANCED
+        EXPERT
+    }
+    
+    class ApplicationId <<Value Object>> {
+        - value: string
+        --
+        + getValue(): string
+        {static} + create(value: string): ApplicationId
+    }
+    
+    class VacancyId <<Value Object>> {
+        - value: string
+        --
+        + getValue(): string
+        {static} + create(value: string): VacancyId
+    }
+    
+    class MatchingId <<Value Object>> {
+        - value: string
+        --
+        + getValue(): string
+        {static} + generate(): MatchingId
+    }
+}
+
+package "Infrastructure Layer" #E3F2FD {
+    interface IMatchingRepository <<interface>> {
+        + save(result: MatchingResult): Promise<void>
+        + findById(id: MatchingId): Promise<MatchingResult | null>
+        + findByApplicationId(appId: ApplicationId): Promise<MatchingResult | null>
+        + findByVacancyId(vacancyId: VacancyId): Promise<MatchingResult[]>
+        + deleteExpired(): Promise<number>
+    }
+    
+    class MatchingRepository <<Repository>> {
+        - dbClient: DatabaseClient
+        - cacheClient: CacheClient
+        - mapper: MatchingMapper
+        --
+        + save(result: MatchingResult): Promise<void>
+        + findById(id: MatchingId): Promise<MatchingResult | null>
+        + findByApplicationId(appId: ApplicationId): Promise<MatchingResult | null>
+        + findByVacancyId(vacancyId: VacancyId): Promise<MatchingResult[]>
+        + deleteExpired(): Promise<number>
+        - cacheKey(id: string): string
+    }
+    
+    interface IIAAdapter <<interface>> {
+        + requestMatching(request: MatchingRequest): Promise<IAResponse>
+        + healthCheck(): Promise<boolean>
+    }
+    
+    class IAAdapter <<Adapter>> {
+        - httpClient: HttpClient
+        - baseUrl: string
+        - timeout: number
+        - retryPolicy: RetryPolicy
+        --
+        + requestMatching(request: MatchingRequest): Promise<IAResponse>
+        + healthCheck(): Promise<boolean>
+        - handleError(error: Error): never
+    }
+    
+    class MatchingRequest <<DTO>> {
+        + candidateProfile: CandidateProfile
+        + vacancyRequirements: VacancyRequirements
+        + scoringInput: ScoringInput
+    }
+    
+    class IAResponse <<DTO>> {
+        + score: number
+        + confidence: number
+        + skillsAnalysis: object[]
+        + experienceScore: number
+        + educationScore: number
+        + summary: string
+        + strengths: string[]
+        + gaps: string[]
+    }
+    
+    interface ICacheManager <<interface>> {
+        + get<T>(key: string): Promise<T | null>
+        + set<T>(key: string, value: T, ttl: number): Promise<void>
+        + invalidate(pattern: string): Promise<void>
+    }
+    
+    class RedisCacheManager <<Infrastructure>> {
+        - redisClient: RedisClient
+        --
+        + get<T>(key: string): Promise<T | null>
+        + set<T>(key: string, value: T, ttl: number): Promise<void>
+        + invalidate(pattern: string): Promise<void>
+    }
+}
+
+' Relaciones API → Domain
+MatchingController --> IMatchingService : uses
+MatchingController ..> MatchingResultDTO : returns
+MatchingResultDTO *-- ExplanationDTO
+ExplanationDTO *-- SkillMatchDTO
+
+' Relaciones Domain Service
+IMatchingService <|.. MatchingService : implements
+MatchingService --> IMatchingRepository : uses
+MatchingService --> IIAAdapter : uses
+MatchingService --> IScoringStrategy : uses
+MatchingService --> ICacheManager : uses
+IScoringStrategy <|.. WeightedScoringStrategy : implements
+IScoringStrategy <|.. MLScoringStrategy : implements
+
+' Relaciones Domain Model
+MatchingResult *-- Score
+MatchingResult *-- Explanation
+MatchingResult *-- MatchingId
+MatchingResult *-- ApplicationId
+MatchingResult --> MatchingStatus
+Explanation *-- SkillAnalysis
+SkillAnalysis --> SkillLevel
+
+' Relaciones Infrastructure
+IMatchingRepository <|.. MatchingRepository : implements
+IIAAdapter <|.. IAAdapter : implements
+ICacheManager <|.. RedisCacheManager : implements
+IAAdapter ..> MatchingRequest : sends
+IAAdapter ..> IAResponse : receives
+MatchingRepository --> MatchingResult : persists
+
+@enduml
+```
+
+### Decisiones de diseño del Matching Service
+
+| Aspecto | Decisión | Justificación |
+|---------|----------|---------------|
+| **Arquitectura** | Clean Architecture con capas separadas | Facilita testing, mantenibilidad y evolución independiente de cada capa |
+| **Value Objects** | `Score`, `Explanation`, `SkillAnalysis` inmutables | Garantiza integridad de datos, evita side effects y facilita comparaciones |
+| **Patrón Strategy** | `IScoringStrategy` con implementaciones intercambiables | Permite A/B testing de algoritmos de scoring sin modificar el servicio |
+| **Repository** | Interfaz abstracta + implementación con caché | Desacopla persistencia del dominio; Redis acelera consultas frecuentes |
+| **Adapter** | `IAAdapter` encapsula comunicación HTTP con retry | Aísla al dominio de detalles de integración; maneja fallos de red |
+| **DTOs** | Objetos separados para API vs. Domain | Evita exposición de entidades internas; permite versionado de API |
+| **IDs tipados** | `ApplicationId`, `VacancyId`, `MatchingId` como Value Objects | Previene errores por confusión de IDs; mejora legibilidad del código |
 
 ---
 
