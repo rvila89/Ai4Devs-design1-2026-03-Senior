@@ -1,0 +1,27 @@
+{
+  "backlog_name": "string",
+  "source_spec": "spec.md",
+  "generated_at": "ISO-8601 timestamp",
+  "items": [
+    {
+      "id": "PB-001",
+      "type": "epic|story|task",
+      "title": "string",
+      "summary": "string",
+      "business_value": "string",
+      "goal_alignment": "string",
+      "source_trace": ["spec section or scenario reference"],
+      "acceptance_criteria": ["string"],
+      "dependencies": ["PB-002"],
+      "open_questions": ["string"],
+      "assumptions": ["string"],
+      "risks": ["string"],
+      "priority": "P0|P1|P2|P3",
+      "story_points": 1,
+      "split_required": false,
+      "readiness": "ready|needs-clarification|needs-splitting",
+      "discipline_tags": ["product", "engineering"],
+      "notes": "string"
+    }
+  ]
+}
