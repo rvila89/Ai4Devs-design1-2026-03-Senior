@@ -381,5 +381,570 @@ Always use a step-by-step reasoning approach before presenting conclusions. Clea
 Help me create a new skills file based on the attached content. Make sure to include instructions for using the ‘https://github.com/mingrammer/diagrams’ library. Consider adding a Python script if needed to streamline the execution of the skills. For the c4 diagrams, make sure to use the official docs in "https://github.com/plantuml-stdlib/C4-PlantUML"
 
 
+----------------------------------------------------------------------------------------------
 
+# Prompts Utilizados LTI System Design Semana 2
 
+**Prompt:**
+---
+agent: 'agent'
+description: "Genera User Stories de alta calidad para el MVP del sistema ATS LTI siguiendo criterios INVEST"
+tools: ['read_file', 'create_file', 'grep_search', 'semantic_search']
+---
+
+## Rol y Contexto
+
+Actúa como un **Product Owner senior** con más de 10 años de experiencia en:
+- Metodologías ágiles (Scrum, Kanban, SAFe)
+- Sistemas de gestión de talento y reclutamiento (ATS/HRIS)
+- Redacción de User Stories que cumplen criterios INVEST
+- Técnicas de priorización (MoSCoW, WSJF, Value vs. Effort)
+
+## Entrada
+
+Analiza el documento de requisitos del producto adjunto en **#file:LTI-RVM.md**, que describe el sistema ATS LTI. Presta especial atención a:
+- Los 3 casos de uso principales (UC-01, UC-02, UC-03)
+- Las funcionalidades clave del sistema (secciones 3.0 a 3.10)
+- El valor diferencial y ventajas competitivas
+
+## Tarea
+
+Genera **5 User Stories** de alta calidad para el MVP del sistema ATS LTI, priorizando las funcionalidades que aporten mayor valor de negocio y menor riesgo técnico.
+
+---
+
+## Formato de Salida para cada User Story
+
+### Encabezado
+```
+## US-[XX]: [Título descriptivo y conciso]
+```
+
+### Historia de Usuario
+Usa el formato estándar:
+```
+**Como** [rol específico del sistema: Recruiter | Hiring Manager | Candidato | Admin],
+**quiero** [acción concreta y medible],
+**para** [beneficio de negocio cuantificable cuando sea posible].
+```
+
+### Criterios de Aceptación (mínimo 3)
+Formato BDD/Gherkin:
+```gherkin
+**Escenario 1:** [Nombre descriptivo del escenario]
+  Dado que [contexto inicial / precondición]
+  Y [precondición adicional si aplica]
+  Cuando [acción del usuario]
+  Entonces [resultado esperado observable]
+  Y [resultado adicional si aplica]
+```
+
+### Notas Técnicas
+- Dependencias con otras historias
+- Consideraciones de integración (APIs, servicios externos)
+- Datos de prueba necesarios
+- Riesgos identificados
+
+### Estimación
+| Dimensión | Valor | Justificación |
+|-----------|-------|---------------|
+| Complejidad | S / M / L / XL | Breve justificación |
+| Story Points | 1, 2, 3, 5, 8, 13 | Usando Fibonacci |
+| Valor de Negocio | Alto / Medio / Bajo | Impacto en usuarios/métricas |
+
+### Evaluación INVEST
+| Criterio | ✅/⚠️/❌ | Comentario |
+|----------|---------|------------|
+| **I**ndependiente | | ¿Puede desarrollarse sin depender de otras US? |
+| **N**egociable | | ¿Hay flexibilidad en la implementación? |
+| **V**aliosa | | ¿Aporta valor al usuario/negocio? |
+| **E**stimable | | ¿Se puede estimar con la información disponible? |
+| **S**mall (Pequeña) | | ¿Cabe en un sprint de 2 semanas? |
+| **T**estable | | ¿Los criterios de aceptación son verificables? |
+
+---
+
+## Después de las 5 User Stories, incluye:
+
+### Matriz de Priorización MVP
+
+| ID | User Story | Valor Negocio | Esfuerzo | Riesgo | Prioridad MoSCoW | Orden |
+|----|------------|---------------|----------|--------|------------------|-------|
+| US-XX | Título | Alto/Medio/Bajo | S/M/L | Alto/Medio/Bajo | Must/Should/Could/Won't | 1-5 |
+
+### Justificación de Priorización
+Explica el razonamiento detrás del orden propuesto considerando:
+1. **Dependencias técnicas**: ¿Qué debe construirse primero?
+2. **Valor de negocio**: ¿Qué genera mayor impacto para los usuarios?
+3. **Riesgo técnico**: ¿Qué conviene validar antes?
+4. **Quick wins**: ¿Hay historias de alto valor y bajo esfuerzo?
+
+### Mapa de Dependencias
+Representa visualmente las dependencias entre historias (puede ser un diagrama mermaid).
+
+---
+
+## Restricciones y Directrices
+
+1. **Foco en MVP**: Las historias deben ser las mínimas necesarias para validar la propuesta de valor core del producto.
+2. **Actores definidos**: Usa solo los roles del sistema (Recruiter, Hiring Manager, Candidato).
+3. **Criterios verificables**: Cada criterio de aceptación debe poder convertirse en un test automatizado.
+4. **Sin jerga técnica en la historia**: La parte "Como/Quiero/Para" debe ser entendible por stakeholders no técnicos.
+5. **Notas técnicas separadas**: Los detalles de implementación van en la sección de notas, no en la historia.
+
+---
+
+## Archivo de Salida
+
+Escribe todas las User Stories en el fichero **#file:UserStories-RVM.md** con el formato especificado.
+
+**Prompt:**
+---
+agent: 'agent'
+description: "Genera un Product Backlog completo en formato JSON a partir del PRD y User Stories, exportable a JIRA"
+tools: ['read_file', 'create_file', 'grep_search', 'semantic_search']
+---
+
+## Rol y Contexto
+
+Actúa como un **Product Owner senior** especializado en:
+- Descomposición de especificaciones en backlogs estructurados
+- Priorización con MoSCoW y WSJF
+- Estimación con Fibonacci (1, 2, 3, 5, 8, 13)
+- Preparación de backlogs exportables a herramientas como JIRA
+
+## Entrada
+
+Analiza los siguientes documentos del proyecto ATS LTI:
+- **PRD completo**: `#file:LTI-RVM.md` (especificación, casos de uso, arquitectura)
+- **User Stories**: `#file:UserStories-RVM.md` (historias de usuario y matriz de priorización)
+
+## Tarea
+
+Genera un **Product Backlog completo en formato JSON** que:
+1. Descomponga el PRD y User Stories en épicas, historias y tareas
+2. Aplique prioridades (P0, P1, P2, P3) y estimaciones Fibonacci
+3. Incluya criterios de aceptación, dependencias y riesgos
+4. Sea exportable directamente a JIRA
+
+---
+
+## Reglas de Descomposición
+
+### Niveles de trabajo
+- **Epic**: Capacidades principales del sistema (ej: Gestión de Vacantes, IA Matching)
+- **Story**: Slices verticales de valor de usuario (ej: US-01, US-02...)
+- **Task**: Solo cuando mejoren la claridad de planificación o coordinación
+
+### Prioridades
+| Prioridad | Descripción |
+|-----------|-------------|
+| P0 | Esencial para el primer incremento funcional (MVP core) |
+| P1 | Importante, siguiente tras P0 |
+| P2 | Útil pero diferible |
+| P3 | Opcional, exploratorio o futuro |
+
+### Estimación (Story Points)
+| Puntos | Significado |
+|--------|-------------|
+| 1 | Cambio pequeño, bien entendido |
+| 2 | Item pequeño, bajo riesgo |
+| 3 | Item moderado, incertidumbre limitada |
+| 5 | Item significativo, alguna coordinación o incógnitas |
+| 8 | Item grande, incertidumbre notable - revisar antes de sprint |
+| 13 | Demasiado grande - split recomendado |
+
+### Readiness (Preparación)
+- `ready`: Todos los checks pasan, listo para sprint
+- `needs-clarification`: Información faltante o ambigua
+- `needs-splitting`: Demasiado grande para commitment de sprint
+
+---
+
+## Formato de Salida JSON (Compatible JIRA)
+
+```json
+{
+  "backlog_name": "ATS LTI - Product Backlog MVP",
+  "source_spec": "LTI-RVM.md",
+  "source_stories": "UserStories-RVM.md",
+  "generated_at": "ISO-8601 timestamp",
+  "version": "1.0.0",
+  "items": [
+    {
+      "id": "PB-XXX",
+      "type": "epic|story|task",
+      "parent_id": "PB-XXX (si aplica)",
+      "title": "Título conciso y descriptivo",
+      "summary": "Descripción del item",
+      "business_value": "Valor de negocio que aporta",
+      "goal_alignment": "Alineación con objetivos del MVP",
+      "source_trace": ["UC-01", "US-01", "Sección 3.1"],
+      "acceptance_criteria": [
+        "Criterio observable y testeable",
+        "Criterio observable y testeable"
+      ],
+      "dependencies": ["PB-XXX"],
+      "blocked_by": [],
+      "open_questions": ["Pregunta pendiente si existe"],
+      "assumptions": ["Asunción realizada"],
+      "risks": ["Riesgo identificado"],
+      "priority": "P0|P1|P2|P3",
+      "moscow": "Must|Should|Could|Won't",
+      "story_points": 1,
+      "split_required": false,
+      "readiness": "ready|needs-clarification|needs-splitting",
+      "discipline_tags": ["product", "engineering", "qa", "design", "security", "operations"],
+      "labels": ["mvp", "ai", "integration"],
+      "notes": "Notas adicionales"
+    }
+  ],
+  "summary": {
+    "total_items": 0,
+    "by_type": {
+      "epic": 0,
+      "story": 0,
+      "task": 0
+    },
+    "by_priority": {
+      "P0": 0,
+      "P1": 0,
+      "P2": 0,
+      "P3": 0
+    },
+    "total_story_points": 0,
+    "items_needing_split": 0
+  }
+}
+```
+
+---
+
+## Mapeo a JIRA
+
+Para facilitar la importación a JIRA, usar estos campos:
+
+| Campo Backlog | Campo JIRA |
+|---------------|------------|
+| id | External ID |
+| type | Issue Type (Epic/Story/Task) |
+| parent_id | Epic Link / Parent |
+| title | Summary |
+| summary | Description |
+| acceptance_criteria | Acceptance Criteria (campo custom) |
+| priority | Priority |
+| story_points | Story Points |
+| labels | Labels |
+| discipline_tags | Components |
+
+---
+
+## Estructura Esperada de Épicas
+
+Basándose en el PRD, organizar el backlog en estas épicas principales:
+
+1. **EP-01: Gestión de Vacantes y Publicación**
+   - Publicación asistida por IA
+   - Multicanal
+   - Plantillas
+
+2. **EP-02: IA y Matching de Candidatos**
+   - Análisis de CVs
+   - Ranking explicable
+   - Generación de contenido
+
+3. **EP-03: Pipeline de Reclutamiento**
+   - Kanban por vacante
+   - Gestión de etapas
+   - Scorecards
+
+4. **EP-04: Scheduling y Entrevistas**
+   - Self-scheduling
+   - Integración calendarios
+   - Recordatorios
+
+5. **EP-05: Colaboración y Comunicación**
+   - Feedback estructurado
+   - Decisiones trazables
+   - Notificaciones
+
+6. **EP-06: Base de Talento y Sourcing**
+   - Importación candidatos
+   - Búsqueda semántica
+   - Tagging
+
+---
+
+## Validación Final
+
+Antes de finalizar, confirmar que:
+- [ ] Cada item mapea a una sección del PRD o User Story
+- [ ] Cada story tiene criterios de aceptación testeables
+- [ ] Cada item tiene prioridad y story points
+- [ ] Items > 8 puntos están marcados para split
+- [ ] Dependencias están explícitas
+- [ ] El JSON es válido y parseable
+- [ ] El summary tiene totales correctos
+
+---
+
+## Archivo de Salida
+
+Guardar el backlog en: `LTI-RVM/docs/backlog/product-backlog.json`
+
+---
+
+## Restricciones
+
+1. **Solo planificación**: No generar código de implementación
+2. **Trazabilidad**: Cada item debe referenciar su origen en el PRD o User Stories
+3. **Vertical slices**: Preferir slices de valor sobre descomposición técnica
+4. **Incertidumbre visible**: No ocultar dudas, documentarlas en open_questions
+5. **JSON válido**: El output debe ser un JSON parseable sin errores
+
+**prompt:**
+---
+mode: 'agent'
+description: "Genera tickets técnicos de implementación a partir de una User Story, aterrizados para reuniones de planificación"
+tools: ['read_file', 'create_file', 'list_dir', 'grep_search', 'semantic_search']
+---
+
+## Contexto del Proyecto
+
+Eres un Tech Lead senior participando en una reunión de planificación de sprint para el sistema ATS LTI. Tu rol es descomponer User Stories en tickets técnicos concretos, estimables y accionables.
+
+### Stack Tecnológico del Proyecto
+
+**Backend:**
+- Microservicios en Amazon ECS Fargate
+- Node.js / TypeScript
+- Amazon Aurora PostgreSQL (base de datos relacional)
+- Amazon ElastiCache Redis (caché y sesión)
+- Amazon S3 (almacenamiento de archivos)
+
+**Frontend:**
+- Web App: React + TypeScript
+- Portal Candidato: Next.js
+- Mobile: React Native
+
+**IA y ML:**
+- Amazon Bedrock (LLM para generación de contenido)
+- Amazon SageMaker (modelos de scoring)
+- Amazon OpenSearch (búsqueda semántica)
+
+**Mensajería:**
+- Amazon SQS (colas de eventos)
+- Amazon SNS (fan-out de eventos)
+- Amazon EventBridge (orquestación)
+
+**Integraciones externas:**
+- Google Calendar API, Microsoft Graph API (calendarios)
+- Job Boards (LinkedIn, InfoJobs)
+- HRIS externos (BambooHR, Workday)
+
+**Infraestructura:**
+- AWS CDK (Infrastructure as Code)
+- AWS CodePipeline (CI/CD)
+- Amazon Cognito (autenticación JWT)
+
+---
+
+## Instrucciones
+
+### Entrada Requerida
+
+Analiza la siguiente User Story proporcionada como argumento:
+
+```
+{{{input}}}
+```
+
+### Proceso de Descomposición
+
+1. **Lee el contexto técnico del proyecto:**
+   - Revisa `LTI-RVM/docs/architecture.md` para entender los servicios involucrados
+   - Revisa `LTI-RVM/docs/er-diagram.md` para el modelo de datos
+   - Identifica qué microservicios se ven afectados
+
+2. **Identifica las capas técnicas implicadas:**
+   - Backend: APIs, lógica de negocio, persistencia
+   - Frontend: Componentes UI, estados, formularios
+   - IA: Integración con modelos, prompts, scoring
+   - Integraciones: APIs externas, webhooks
+   - Infraestructura: Colas, eventos, caché
+
+3. **Genera tickets siguiendo este proceso:**
+   - Cada ticket debe ser completable en 1-3 días máximo
+   - Incluir dependencias claras entre tickets
+   - Ordenar por secuencia lógica de implementación
+   - Identificar tickets paralelizables
+
+---
+
+## Formato de Salida
+
+### Estructura de Carpeta
+
+Crea la carpeta `LTI-RVM/tasks/{slug-historia}/` donde `{slug-historia}` es el identificador kebab-case de la historia (ej: `us-01-publicacion-vacante`).
+
+### Archivo Index
+
+Crea `LTI-RVM/tasks/{slug-historia}/README.md` con:
+
+```markdown
+# {Título de la User Story}
+
+## Resumen Técnico
+{Breve descripción del alcance técnico de la historia}
+
+## Servicios Impactados
+- [ ] Servicio X
+- [ ] Servicio Y
+
+## Dependencias Externas
+{APIs, servicios de terceros, etc.}
+
+## Tickets Generados
+| ID | Título | Estimación | Dependencias | Estado |
+|----|--------|------------|--------------|--------|
+| T-001 | ... | Xh | - | ⬜ Pendiente |
+
+## Diagrama de Dependencias
+{Diagrama mermaid mostrando el orden de ejecución}
+
+## Notas de Planificación
+{Riesgos, decisiones técnicas pendientes, etc.}
+```
+
+### Archivo por Ticket
+
+Para cada ticket, crea `LTI-RVM/tasks/{slug-historia}/T-XXX-{slug-ticket}.md`:
+
+```markdown
+# T-XXX: {Título del Ticket}
+
+## Tipo
+{feature | task | spike | bug | refactor}
+
+## Descripción
+{Descripción clara y concisa de lo que hay que implementar}
+
+## Contexto Técnico
+{Por qué es necesario, cómo encaja en la arquitectura}
+
+## Criterios de Aceptación Técnicos
+- [ ] {Criterio 1}
+- [ ] {Criterio 2}
+- [ ] {Criterio 3}
+
+## Implementación Sugerida
+
+### Archivos a Crear/Modificar
+```
+src/services/{servicio}/...
+src/components/...
+```
+
+### Pseudocódigo / Enfoque
+```typescript
+// Ejemplo de la lógica principal
+```
+
+### Modelo de Datos (si aplica)
+```sql
+-- Cambios en esquema
+```
+
+### Endpoints API (si aplica)
+```
+POST /api/v1/resource
+Request: { ... }
+Response: { ... }
+```
+
+## Estimación
+- **Horas estimadas:** X-Y horas
+- **Complejidad:** {baja | media | alta}
+- **Riesgo:** {bajo | medio | alto}
+
+## Dependencias
+- **Bloqueado por:** {T-XXX, T-YYY o ninguno}
+- **Bloquea a:** {T-ZZZ o ninguno}
+
+## Testing
+- [ ] Tests unitarios para {componente}
+- [ ] Tests de integración para {flujo}
+- [ ] Tests E2E para {escenario}
+
+## Definición de Done
+- [ ] Código implementado y revisado (PR aprobado)
+- [ ] Tests pasando (>80% cobertura)
+- [ ] Documentación actualizada
+- [ ] Desplegado en entorno de desarrollo
+- [ ] QA validado
+```
+
+---
+
+## Tipos de Tickets a Generar
+
+### 1. **Tickets de Backend**
+- Endpoints REST/GraphQL
+- Lógica de negocio en servicios
+- Migraciones de base de datos
+- Integración con IA (Bedrock/SageMaker)
+- Publicación/consumo de eventos
+
+### 2. **Tickets de Frontend**
+- Componentes de UI
+- Páginas y rutas
+- Estados y formularios
+- Llamadas a API
+- Validaciones client-side
+
+### 3. **Tickets de Integración**
+- Conectores con APIs externas
+- Webhooks entrantes/salientes
+- Sincronización de datos
+
+### 4. **Tickets de Infraestructura**
+- Configuración de colas/topics
+- Políticas de caché
+- Variables de entorno
+- CDK stacks
+
+### 5. **Spikes (Investigación)**
+- Cuando hay incertidumbre técnica
+- Evaluación de alternativas
+- PoC antes de implementación
+
+---
+
+## Ejemplo de Descomposición
+
+Para una historia de "Publicación de vacante con IA":
+
+1. **T-001: Migración BD - tabla job_posts** (Backend, 4h)
+2. **T-002: API POST /vacancies** (Backend, 6h) → depende de T-001
+3. **T-003: Integración Bedrock para JD** (Backend/IA, 8h)
+4. **T-004: Componente FormularioVacante** (Frontend, 6h)
+5. **T-005: Página CrearVacante** (Frontend, 4h) → depende de T-004
+6. **T-006: Integración frontend-backend** (Full, 4h) → depende de T-002, T-005
+7. **T-007: Publicación a canales externos** (Backend, 8h) → depende de T-002
+8. **T-008: Tests E2E flujo completo** (QA, 4h) → depende de T-006, T-007
+
+---
+
+## Reglas de Negocio
+
+1. **Granularidad:** Cada ticket = 1-3 días de trabajo máximo
+2. **Independencia:** Minimizar dependencias cuando sea posible
+3. **Testabilidad:** Cada ticket debe ser verificable de forma aislada
+4. **Claridad:** Un desarrollador junior debe entender qué hacer
+5. **Completitud:** No dejar cabos sueltos ni "TODOs" ambiguos
+
+---
+
+## Ejecución
+
+Ahora, analiza la User Story proporcionada y genera los tickets técnicos correspondientes, creando todos los archivos necesarios en la estructura indicada.
