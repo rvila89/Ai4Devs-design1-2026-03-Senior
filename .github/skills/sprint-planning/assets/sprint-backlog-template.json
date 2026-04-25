@@ -1,0 +1,33 @@
+{
+  "sprint_name": "string",
+  "sprint_goal": "string",
+  "planning_mode": "solo|team",
+  "effective_capacity": 0,
+  "selected_story_points": 0,
+  "remaining_capacity": 0,
+  "selected_items": [
+    {
+      "id": "PB-001",
+      "title": "string",
+      "story_points": 3,
+      "sequence": 1,
+      "selection_reason": "string",
+      "supports_goal": "string",
+      "dependencies": ["PB-000"],
+      "readiness": "ready|planning-exception",
+      "ready_check_passed": true,
+      "split_required": false,
+      "blockers": ["string"],
+      "discipline_tags": ["engineering", "QA"],
+      "notes": "string"
+    }
+  ],
+  "deferred_items": [
+    {
+      "id": "PB-010",
+      "reason": "out of scope|not ready|over capacity|needs splitting|blocked"
+    }
+  ],
+  "risks": ["string"],
+  "assumptions": ["string"]
+}

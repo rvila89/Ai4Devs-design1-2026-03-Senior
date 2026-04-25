@@ -17,9 +17,9 @@ Use this skill when:
 Do not use this skill when the task is implementation, coding, debugging, or direct sprint selection from an already prepared backlog.
 
 ## Files to load
-- Read `planning-assumptions.md` before starting.
+- Read `references/planning-assumptions.md` before starting.
 - Read `references/backlog-rules.md` before decomposing the spec.
-- Read `definition-of-ready.md` when assigning readiness states.
+- Read `references/definition-of-ready.md` when assigning readiness states.
 - Read `assets/product-backlog-template.json` only when formatting the final output.
 
 ## Workflow
@@ -29,7 +29,7 @@ Do not use this skill when the task is implementation, coding, debugging, or dir
 4. Apply priority and initial Fibonacci story point estimates.
 5. Assign readiness states based on the definition of ready.
 6. Capture assumptions, risks, and unresolved questions explicitly instead of inventing missing requirements.
-7. Format the final backlog using `product-backlog-template.json`.
+7. Format the final backlog using `assets/product-backlog-template.json`.
 
 ## Gotchas
 - Do not create implementation code or code-level tasks unless the spec explicitly requires planning-level technical tasks.
@@ -43,6 +43,11 @@ Do not use this skill when the task is implementation, coding, debugging, or dir
 - Ensure each item includes title, summary, business value, traceability, acceptance criteria, dependencies, assumptions, risks, priority, estimate, readiness, and discipline tags.
 - Mark oversized items as split candidates.
 - Distinguish facts from assumptions.
+
+## Output location
+Save the final backlog as `planning/product-backlog.json` inside the active spec folder
+(e.g. `specs/<feature-name>/planning/product-backlog.json`).
+The prompt can override this path when a different location is needed.
 
 ## Final validation
 Before finalizing, confirm that:

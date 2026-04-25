@@ -1,299 +1,31 @@
-# SYSTEM PROMPT (Para el ATS Research)
-
-#CONTEXT:
-Eres un Product Manager senior especializado en HR Tech y sistemas ATS (Applicant Tracking System). Piensas de forma estructurada, priorizas impacto de negocio y diseñas productos con enfoque en eficiencia operativa, colaboración entre equipos y uso práctico de inteligencia artificial. Siempre trabajas con claridad, evitando generalidades y proponiendo soluciones accionables.
-
-#GOAL:
-Tu objetivo es transformar ideas vagas o iniciales sobre un ATS en propuestas estructuradas de producto listas para ser utilizadas por equipos de desarrollo, diseño y negocio.
-
-#RESPONSE GUIDELINES:
-Sigue siempre este enfoque al responder:
-1. Identifica problemas reales del usuario o del dominio HR relacionados con reclutamiento.
-2. Traduce necesidades abstractas en funcionalidades concretas de producto.
-3. Organiza las ideas en categorías claras (features, flujos, IA, métricas).
-4. Prioriza impacto sobre complejidad.
-5. Explica siempre el “por qué” de cada decisión de producto.
-6. Evita lenguaje genérico; usa ejemplos específicos de funcionalidades.
-7. Mantén un equilibrio entre visión estratégica y detalle práctico.
-
-#OUTPUT:
-Respuestas estructuradas, claras, orientadas a producto, listas para ser compartidas con equipos técnicos y stakeholders.# Documento de Definición – Sistema ATS (LTI)
-
-# USER PROMPT (Para el ATS Research)
-
-#CONTEXT:
-Estoy diseñando un sistema ATS desde cero y necesito definir las funcionalidades clave, diferenciadores y enfoque estratégico del producto para que destaque frente a la competencia. El objetivo es mejorar la eficiencia de HR, facilitar la colaboración entre reclutadores y managers, e integrar automatización e inteligencia artificial.
-
-#GOAL:
-Quiero una propuesta estructurada que sirva como base para alinear al equipo de producto y desarrollo.
-
-#RESPONSE GUIDELINES:
-Sigue este proceso:
-
-1. Identifica los principales problemas actuales en ATS tradicionales.
-2. Define los pilares estratégicos del producto (eficiencia, colaboración, automatización, IA).
-3. Genera un brainstorming de funcionalidades agrupadas por categorías (sourcing, screening, entrevistas, etc.).
-4. Selecciona y desarrolla las 5–7 funcionalidades más importantes.
-5. Propón casos de uso concretos de IA aplicados al sistema.
-6. Diseña cómo será la colaboración entre reclutadores y hiring managers.
-7. Define métricas claras de éxito del producto.
-
-#INFORMATION ABOUT ME:
-- Tipo de empresa objetivo: [TIPO DE EMPRESA]
-- Nivel de madurez del producto: [IDEA / MVP / ESCALADO]
-- Mercado objetivo: [PAÍS O REGIÓN]
-- Tipo de roles a reclutar: [TIPO DE PERFILES]
-- Nivel de innovación deseado: [BAJO / MEDIO / ALTO]
-
-#OUTPUT:
-Entrega en formato Markdown con esta estructura:
-
-## 1. Problemas clave en ATS actuales  
-## 2. Pilares estratégicos del producto  
-## 3. Brainstorming de funcionalidades  
-## 4. Funcionalidades clave  
-## 5. Casos de uso de IA  
-## 6. Colaboración entre equipos  
-## 7. Métricas de éxito  
-
-Cada sección debe ser concreta, accionable y sin generalidades.
-
-# ATS RESEARCH:
-## 1. Problemas clave en ATS actuales
-
-- **Curva de aprendizaje alta y UX compleja**, especialmente para hiring managers no técnicos, lo que reduce la adopción interna y obliga a mantener procesos paralelos en hojas de cálculo o correo.[1][2]
-- **Experiencia de candidato pobre**: formularios largos, no mobile-first, procesos poco claros y sin visibilidad del estado, lo que aumenta el abandono de aplicaciones y daña la marca empleadora.[3][4][1]
-- **Parsing y filtrado impreciso** de CVs, basado en keywords rígidas, que deja fuera buenos candidatos (especialmente en roles técnicos con formatos de CV no estándar).[5][6][3]
-- **Workflows rígidos y poca personalización**, que obligan a adaptar el proceso de reclutamiento al sistema en lugar de que el sistema soporte la realidad del equipo.[7][2][3]
-- **Integraciones débiles y datos en silos** con HRIS, correo, calendarios, herramientas de evaluación técnica y plataformas de mensajería, lo que genera duplicidad de trabajo y dificulta ver el funnel completo.[2][8][3]
-- **Reporting limitado y poco accionable**, centrado en listados básicos y descargas CSV en lugar de dashboards con métricas operativas útiles para HR y negocio.[8][7]
-- **Uso superficial de IA**, reducido a filtros automáticos o chatbots de FAQ, sin matching profundo, sin explicabilidad y sin impacto claro en la calidad de contratación.[9][10][2]
-- **Automatización mal diseñada**, que genera sobre-filtro, mensajes impersonales o decisiones opacas, deteriorando la experiencia y aumentando la desconfianza de candidatos y hiring managers.[11][5]
-
-## 2. Pilares estratégicos del producto
-
-1. **Simplicidad operativa radical**  
-   - Interfaces pensadas primero para recruiters y hiring managers, con flujos claros y pocos clics por acción crítica (mover candidato, dejar feedback, agendar entrevista).[1]
-   - Configuración guiada para crear vacantes y pipelines sin necesidad de equipos técnicos ni consultorías largas.[2]
-
-2. **Colaboración nativa reclutador–hiring manager**  
-   - El ATS como lugar único donde se centralizan decisiones, feedback y contexto de cada proceso, evitando discusiones dispersas en email/Slack.[12]
-   - Diseñar vistas diferenciadas: recruiter (operativa) vs. hiring manager (resumen ejecutivo y decisiones rápidas).
-
-3. **Automatización controlada y transparente**  
-   - Motor de reglas no-code centrado en tareas repetitivas (envío de correos, cambios de etapa, recordatorios), siempre con logs visibles y posibilidad de override manual.[11]
-   - Automatizaciones con foco en reducir tiempo-to-hire, no en reemplazar criterio humano en decisiones clave.[4]
-
-4. **IA asistiva, no opaca**  
-   - IA como copiloto que propone (rankings, resúmenes, redacción), pero siempre deja la decisión final al usuario con explicaciones claras de por qué sugiere algo.[10][9]
-   - Casos de IA orientados a aumentar calidad de hire y eficiencia: mejor matching, mejores JD, mejores entrevistas, no solo más filtros.[4][10]
-
-5. **Datos accionables para negocio**  
-   - Dashboards simples: time-to-hire, conversiones por etapa, fuentes de talento efectivas, SLA de feedback por hiring manager.[13][7]
-   - Métricas pensadas para CTO/Head of Engineering y HR, no solo para analistas de talento.
-
-## 3. Brainstorming de funcionalidades
-
-### 3.1 Sourcing y talent pool
-
-- Importación de candidatos desde LinkedIn, bolsas de trabajo y referidos con un clic.
-- Base de talento centralizada con etiquetas (skills, seniority, stack tecnológico, ubicación, idioma).
-- Búsqueda semántica de candidatos por skills y proyectos (ej. "backend Node.js con experiencia en fintech").
-- Recomendaciones de candidatos de la base existente cuando se crea una nueva vacante.
-
-### 3.2 Gestión de vacantes y publicación
-
-- Creación de vacantes con plantillas específicas para roles de software (Backend, Frontend, DevOps, Data, Mobile).
-- Publicación en múltiples canales (job boards, LinkedIn, página de carreras) desde una sola interfaz.[13]
-- Página de carreras embebible y personalizable para startups.
-- Librería de descripciones de puesto optimizadas para SEO y diversidad.
-
-### 3.3 Screening y evaluación
-
-- Pipeline en vista Kanban por vacante con drag & drop entre etapas.
-- Scorecards configurables por rol (skills técnicas, soft skills, cultura, idioma).
-- Preguntas de knockout configurables (ej. zona horaria, stack mínimo, nivel de inglés).
-- Rankeo automático de candidatos según fit con la vacante (skills, experiencia, seniority).
-
-### 3.4 Entrevistas y scheduling
-
-- Integración con Google Calendar y Outlook para ver disponibilidad en tiempo real.[13]
-- Enlaces de self-scheduling para que el candidato elija slot dentro de ventanas definidas.
-- Plantillas de paneles de entrevista (tech screen, pair programming, cultural) con duración y participantes.
-- Recordatorios automáticos de entrevistas para candidatos y entrevistadores vía email/SMS.
-
-### 3.5 Colaboración y comunicación
-
-- Comentarios en hilo a nivel candidato, con @mentions a hiring managers y entrevistadores.
-- Estado de decisión por entrevistador (strong yes, yes, no, strong no) y resumen de consenso.
-- Inbox unificado de comunicación con candidatos (email + potencialmente WhatsApp/SMS vía integración).[11]
-- Notificaciones configurables en Slack/Teams cuando hay acciones pendientes (feedback, aprobación de oferta).
-
-### 3.6 Automatización y workflows
-
-- Motor de reglas visual (cuando X pasa en etapa Y, hacer Z: enviar email, mover etapa, asignar tarea).
-- Secuencias de nurturing para candidatos en proceso largo (ej. roles muy seniors o pipelines futuros).
-- Limpieza automática de base (marcar inactivos, GDPR/consentimiento, anonymización donde aplique).[8]
-- Plantillas de campañas de reapertura de vacantes usando la base histórica.
-
-### 3.7 IA y recomendaciones
-
-- Generación asistida de job descriptions a partir de inputs de negocio (stack, nivel, contexto del producto).[9]
-- Matching inteligente CV–vacante con explicación de por qué un candidato encaja o no.[10]
-- Resúmenes automáticos del perfil del candidato para enviar a hiring managers.
-- Sugerencias de preguntas técnicas y conductuales personalizadas para cada candidato.
-
-### 3.8 Analytics y reporting
-
-- Dashboard de funnel de reclutamiento: vistas, aplicaciones, entrevistados, ofertas, contratados.[7]
-- Reporte de time-to-hire y time-to-fill por rol, equipo y recruiter.[4]
-- Informe de efectividad por fuente (LinkedIn, referrals, job boards).
-- SLA de feedback por hiring manager y equipo técnico.
-
-### 3.9 Integraciones y plataforma
-
-- Integración con herramientas de evaluación técnica (HackerRank, Codility, plataformas internas).
-- Integración con HRIS/Payroll básicos para traspasar candidatos contratados.
-- API abierta para que la startup integre sistemas internos (por ejemplo, plataformas de producto).
-- Webhooks para disparar eventos hacia otros sistemas (ej. Slack cuando se envía oferta).
-
-## 4. Funcionalidades clave
-
-A continuación se priorizan 6 funcionalidades para el MVP, optimizadas para una startup global que contrata roles de desarrollo de software.
-
-### 4.1 Pipeline Kanban con workflows sencillos
-
-- **Qué es**: vista Kanban por vacante con etapas configurables (Applied, Screen, Tech Interview, Culture, Offer) y drag & drop, con acciones rápidas en cada tarjeta (ver CV, dejar nota, cambiar etapa).
-- **Por qué es clave**: es el centro de trabajo diario de recruiters y hiring managers; permite ver el estado del proceso en segundos y reduce dependencia de hojas de cálculo.
-- **Diseño MVP**: número limitado de etapas, campos básicos (nombre, rol, seniority, etapa, fuente), acciones primarias visibles (mover, comentar, programar entrevista).
-
-### 4.2 Motor de automatización no-code
-
-- **Qué es**: reglas del tipo "si pasa X, hacer Y" configurables sin código (por ejemplo, cuando un candidato aplica, enviar email de recepción y asignar recruiter).
-- **Por qué es clave**: permite reducir tareas repetitivas (envío de correos, cambios de etapa, recordatorios) y escalar sin aumentar headcount de reclutamiento.[11]
-- **Diseño MVP**: catálogo corto de triggers (nuevo candidato, cambio de etapa, entrevista creada) y acciones (email, cambio de etapa, crear tarea interna), con logs visibles.
-
-### 4.3 Matching IA explicable para roles de software
-
-- **Qué es**: un modelo que analiza CV, skills (ej. React, Node, Kubernetes), experiencia y requisitos de la vacante para generar un score de fit y un resumen de motivos.
-- **Por qué es clave**: acelera el screening inicial cuando el volumen de aplicaciones sube, ayudando a priorizar sin depender solo de palabras clave rígidas.[9][10]
-- **Diseño MVP**: ranking de candidatos dentro de una vacante con etiquetas como "match fuerte en backend" o "gap en experiencia de microservicios", siempre permitiendo override manual.
-
-### 4.4 Scheduling inteligente con self-service
-
-- **Qué es**: integración con calendarios de entrevistadores para mostrar slots disponibles y permitir que el candidato elija dentro de ventanas definidas.
-- **Por qué es clave**: reduce el ping-pong de correos para coordinar entrevistas y acorta el tiempo entre etapas, un driver crítico de time-to-hire.[13]
-- **Diseño MVP**: un tipo de entrevista (videollamada), integración con Google Calendar, link único enviado al candidato tras aprobación del recruiter.
-
-### 4.5 Hub de colaboración recruiter–hiring manager
-
-- **Qué es**: espacio en cada vacante y candidato para comentarios en hilo, decisiones de avance/rechazo, y scorecards compartidos.
-- **Por qué es clave**: mueve las conversaciones desde canales dispersos (email, chat) al ATS, hace trazables las decisiones y reduce malentendidos.
-- **Diseño MVP**: vista para hiring manager con lista de candidatos "necesitan decisión", botones de acción rápida (avanzar/rechazar) y campo de feedback obligatorio.
-
-### 4.6 Dashboard operativo de reclutamiento
-
-- **Qué es**: panel con métricas esenciales: vacantes abiertas, time-to-hire, conversiones por etapa, carga de entrevistas por recruiter y equipo.
-- **Por qué es clave**: permite a HR y líderes de ingeniería detectar cuellos de botella, justificar headcount de recruiting y demostrar impacto del ATS.[7][4][13]
-- **Diseño MVP**: 1–2 vistas predefinidas, filtros por equipo/rol, descargas simples para compartir en comité.
-
-## 5. Casos de uso de IA
-
-### 5.1 Redacción asistida de job descriptions
-
-- **Input**: título del rol, stack principal, nivel (junior/mid/senior), tipo de producto, contexto de la startup.
-- **Output**: descripción de puesto clara, estructurada (sobre la empresa, responsabilidades, requisitos, beneficios) y optimizada para diversidad y SEO.
-- **Impacto**: reduce tiempo de creación de vacantes y mejora la tasa de conversión de vistas a aplicaciones.[9]
-
-### 5.2 Matching y ranking inteligente de candidatos
-
-- **Input**: CV, perfil de LinkedIn, experiencia, skills técnicas, requisitos de la vacante.
-- **Output**: score de fit, explicación de por qué el candidato encaja o no, y sugerencias de otras vacantes donde podría ser buen fit.[10]
-- **Impacto**: priorización rápida cuando hay alto volumen de aplicaciones, y reuso de la base de talento para nuevas vacantes.
-
-### 5.3 Resúmenes ejecutivos para hiring managers
-
-- **Input**: CV, notas de entrevistas previas, resultados de pruebas técnicas.
-- **Output**: resumen breve en lenguaje de negocio ("Perfil Senior Backend con 6 años en fintech, fuerte en Node y microservicios, experiencia liderando equipos pequeños").
-- **Impacto**: permite a los hiring managers tomar decisiones más rápidas sin leer CVs extensos.
-
-### 5.4 Generación de guías de entrevista personalizadas
-
-- **Input**: vacante + CV del candidato.
-- **Output**: set de preguntas técnicas y conductuales adaptadas al stack y experiencia del candidato (ej. preguntas sobre patrones de diseño si ha trabajado en arquitecturas complejas).
-- **Impacto**: mejora calidad de las entrevistas y hace más consistente la evaluación entre entrevistadores.
-
-### 5.5 Detección de señales de riesgo y oportunidades
-
-- **Input**: historial laboral, cambios frecuentes de empleo, gaps, tipos de empresas.
-- **Output**: flags suaves (ej. "cambios frecuentes en los últimos 3 años") y contexto para que el recruiter explore en entrevista, sin automatizar el descarte.[5]
-- **Impacto**: ayuda a enfocar las entrevistas en los puntos críticos sin introducir filtros opacos.
-
-### 5.6 Recomendaciones de acción sobre el pipeline
-
-- **Input**: estado del funnel, tiempos en cada etapa, volumen de candidatos.
-- **Output**: sugerencias como "esta vacante lleva 10 días sin nuevos candidatos, aumenta difusión" o "hay 8 candidatos en etapa entrevista sin feedback, envía recordatorio a los entrevistadores".[4]
-- **Impacto**: soporte proactivo a recruiters para evitar cuellos de botella y retrasos.
-
-## 6. Colaboración entre equipos
-
-### 6.1 Kickoff estructurado de vacantes
-
-- Plantilla de intake donde recruiter y hiring manager definen juntos: objetivo del rol, deliverables de los primeros 6 meses, skills must-have/nice-to-have, rango salarial y stakeholders.
-- Este kickoff se registra en el ATS y sirve como referencia para IA (matching, JD, preguntas de entrevista) y para alinear expectativas desde el inicio.[12]
-
-### 6.2 Scorecards compartidos y obligatorios
-
-- Cada vacante tiene un scorecard definido en el kickoff, con criterios y niveles de evaluación claros.
-- Entrevistadores deben completar el scorecard antes de registrar su decisión, evitando feedback vago como "me gustó/no me gustó".
-
-### 6.3 Bandeja de decisiones para hiring managers
-
-- Vista específica donde los hiring managers ven solo los candidatos que requieren acción (revisar shortlist, aprobar paso a oferta, etc.).
-- Para cada candidato se muestra un resumen de IA, feedback de entrevistas previas y botones de decisión rápida con campos de comentario.
-
-### 6.4 Comunicación centralizada y visible
-
-- Todos los comentarios, decisiones y notas viven en el perfil del candidato, no en hilos de correo.
-- Notificaciones configurables en Slack/Teams cuando hay acciones críticas (ej. "Tienes 3 candidatos en espera de feedback desde hace más de 48 horas").
-
-### 6.5 Modo entrevistador
-
-- Vista simplificada para entrevistadores: solo ven información relevante (JD, CV, scorecard a completar) y el enlace a la videollamada.
-- Tras la entrevista, flujo guiado para registrar feedback estructurado en menos de 3 minutos.
-
-### 6.6 Roles, permisos y SLAs
-
-- Roles claros: Recruiter (dueño del proceso), Hiring Manager (dueño de la decisión de contratación), Entrevistadores (dueños del feedback).
-- Definición de SLAs internos (ej. feedback máximo 48 horas tras la entrevista) con métricas visibles en el dashboard.
-
-## 7. Métricas de éxito
-
-### 7.1 Métricas de negocio y operación de reclutamiento
-
-- **Time-to-hire** y **time-to-fill** por rol, equipo y ubicación, con objetivo de reducción porcentual frente a la línea base.[4]
-- **Conversiones por etapa** (aplicación → screen, screen → entrevista, entrevista → oferta, oferta → contratación) para detectar cuellos de botella.[7]
-- **Calidad de la contratación** (proxy): retención a 6–12 meses, performance review inicial donde exista medición.[4]
-- **Efectividad por fuente**: hires y entrevistas de calidad por canal (LinkedIn, referrals, job boards) versus coste.[13]
-- **SLA de feedback**: porcentaje de entrevistas con feedback dentro del tiempo objetivo.
-
-### 7.2 Métricas de adopción y éxito del producto
-
-- **Usuarios activos mensuales**: recruiters, hiring managers y entrevistadores usando el sistema al menos X veces/mes.
-- **Porcentaje de vacantes gestionadas end-to-end en el ATS**, sin procesos paralelos en hojas de cálculo.
-- **Uso de funcionalidades clave**: porcentaje de entrevistadores que completan scorecards, porcentaje de vacantes con automatizaciones activas, porcentaje de decisiones tomadas desde la bandeja del hiring manager.
-- **Uso de IA**: número de JD generadas con IA, porcentaje de shortlist basado en ranking IA (aunque siempre revisado por humanos), uso de resúmenes para decisiones.[10][9]
-- **NPS de usuarios internos** (recruiters, hiring managers) y **CSAT** sobre soporte.
-- **Impacto percibido**: surveys periódicas sobre "el ATS me ayuda a contratar más rápido y mejor" con escala cuantitativa.
-
----------
-
-# Documento de Definición – Sistema ATS (LTI)
+# Product Requirements Document – Sistema ATS (LTI)
 
 ## Índice
-1. Descripción breve del software LTI  
-2. Valor añadido y ventajas competitivas  
-3. Funciones principales del sistema  
+1. [Descripción breve del software LTI](#1-descripci%C3%B3n-breve-del-software-lti)
+2. [Valor añadido y ventajas competitivas](#2-valor-a%C3%B1adido-y-ventajas-competitivas)
+3. [Funciones principales del sistema](#3-funciones-principales-del-sistema)
+    - [3.0 Análisis de CVs y perfilado de candidatos impulsado por IA](#30-an%C3%A1lisis-de-cvs-y-perfilado-de-candidatos-impulsado-por-ia)
+    - [3.1 Gestión de candidatos y sourcing](#31-gesti%C3%B3n-de-candidatos-y-sourcing)
+    - [3.2 Gestión de vacantes](#32-gesti%C3%B3n-de-vacantes)
+    - [3.3 Pipeline de reclutamiento](#33-pipeline-de-reclutamiento)
+    - [3.4 Screening y evaluación](#34-screening-y-evaluaci%C3%B3n)
+    - [3.5 Entrevistas y scheduling](#35-entrevistas-y-scheduling)
+    - [3.6 Colaboración y comunicación](#36-colaboraci%C3%B3n-y-comunicaci%C3%B3n)
+    - [3.7 Automatización y workflows](#37-automatizaci%C3%B3n-y-workflows)
+    - [3.8 Inteligencia artificial](#38-inteligencia-artificial)
+    - [3.9 Analytics y reporting](#39-analytics-y-reporting)
+    - [3.10 Integraciones y plataforma](#310-integraciones-y-plataforma)
+4. [Lean Canvas](#4-lean-canvas)
+5. [Casos de uso](#5-casos-de-uso)
+    - [UC-01: Publicación de vacante asistida por IA](#uc-01-publicaci%C3%B3n-de-vacante-asistida-por-ia)
+    - [UC-02: Evaluación y matching inteligente de candidatos](#uc-02-evaluaci%C3%B3n-y-matching-inteligente-de-candidatos)
+    - [UC-03: Agendamiento self-service de entrevista](#uc-03-agendamiento-self-service-de-entrevista)
+6. [Diagrama Entidad-Relación (ER)](#6-diagrama-entidad-relaci%C3%B3n-er)
+7. [Diagrama de Arquitectura](#7-diagrama-de-arquitectura)
+8. [C4 Diagrama de Contenedores](#7-c4-diagrama-de-contenedores)
+    - [Context Diagram](#context-diagram)
+    - [Container Diagram](#container-diagram)
+    - [Component Diagram – AI Microservices](#component-diagram--ai-microservices)
 
 ---
 
@@ -347,6 +79,9 @@ LTI se diferencia de los ATS tradicionales en los siguientes aspectos clave:
 ---
 
 ## 3. Funciones principales del sistema
+
+### 3.0 Análisis de CVs y perfilado de candidatos impulsado por IA:
+Extracción y estructuración automática de información de candidatos desde currículums mediante inteligencia artificial, garantizando evaluaciones rápidas y precisas.
 
 ### 3.1 Gestión de candidatos y sourcing
 - Importación de candidatos desde múltiples fuentes.
@@ -427,70 +162,1005 @@ LTI se diferencia de los ATS tradicionales en los siguientes aspectos clave:
 - Webhooks para eventos.
 - Sincronización con sistemas de HR.
 
-# Lean Canvas Diagram
-/context/lean-canvas-ats.drawio
+## 4. Lean Canvas
+Este es el Lean Canvas que resume la propuesta de valor, segmentos de clientes, canales, fuentes de ingresos, estructura de costos, métricas clave y ventajas competitivas del sistema ATS LTI.
+![Lean Canvas](./lean-canvas.png)
 
-# Use Cases
-/docs/use-cases.md
+## 5. Casos de uso
 
-# Entidad Relacion Diagram
-/docs/er-diagram.md
+### UC-01: Publicación de vacante asistida por IA
 
-# High Level Architecture Diagram
-/docs/architecture.md
+**Actor principal:** Recruiter  
+**Objetivo:** Crear y publicar una vacante optimizada en múltiples canales con el apoyo del motor de IA del sistema, reduciendo el tiempo de elaboración del job description.
 
-# C4 Diagrams
-/docs/c4-diagrams.md
+**Precondiciones:**
+- El Recruiter tiene una necesidad de contratación aprobada.
+- El sistema tiene acceso a plantillas de vacantes y al motor de IA.
 
-# SYSTEM PROMPT PARA EL SKILL CREATOR
-You are a helpful assistant specializing in creating agent skills according to best practices. For any request:
+**Postcondiciones:**
+- La vacante queda publicada en los canales seleccionados.
+- El sistema comienza a recibir candidaturas y registra el origen.
 
-- Clearly identify the objective and intended use of the agent skill.
-- Provide a step-by-step reasoning process before giving your proposed solution, recommendation, or final response.
-- When outlining agent skill designs, include details on required inputs, outputs, preconditions, logic flow, and error handling.
-- Consider relevant edge cases and user scenarios.
-- Ensure your explanation is organized, concise, and technically accurate.
-- Where beneficial, use well-structured examples with placeholders (e.g., [USER_INPUT], [AGENT_RESPONSE]) to illustrate best practices. Use at least one full example for complex skills.
+**Flujo básico:**
 
-Always separate reasoning from conclusions. Present your reasoning and design rationale first, followed by your final recommended agent skill structure, design, or response.
+1. El Recruiter accede al módulo de vacantes y selecciona una plantilla por rol.
+2. Introduce los parámetros clave (título, requisitos mínimos, equipo, nivel).
+3. El motor de IA genera un job description optimizado con keywords relevantes.
+4. El Recruiter revisa, edita si necesario y aprueba el contenido.
+5. Selecciona los canales de publicación (bolsas de empleo, página de carreras, LinkedIn).
+6. El sistema publica simultáneamente y muestra un resumen de alcance estimado.
 
-Output Format:
-- For detailed specifications or structured agent skills, present your answer in clear markdown sections and use JSON for agent logic or schema portions.
-- For non-structured answers, use clear, labeled sections for reasoning and for your conclusion or output.
+**Flujos alternativos:**
+- Si el Recruiter rechaza el JD generado, puede solicitar una nueva versión con contexto adicional o editar manualmente.
+- Si un canal de publicación no está integrado, el sistema muestra aviso y excluye ese canal.
 
-Example:
+**Diferenciador:** La generación automática de JDs con IA elimina el tiempo de redacción desde cero y garantiza contenido más atractivo y optimizado para búsqueda, algo que los ATS tradicionales no ofrecen.
 
-Request: "Design an agent skill to help users schedule meetings via voice."
+**Impacto de negocio:** Reducción del time-to-publish de vacante de horas a minutos. Mayor calidad y consistencia del contenido publicado. Ampliación del alcance a múltiples canales desde un único punto.
 
-Response:
-### Reasoning
-- Users will provide meeting details via voice input.
-- The agent must extract key information: time, participants, location, agenda.
-- The agent should offer confirmation before finalizing any scheduling.
-- Handle errors such as missing information or conflicting times.
+```mermaid
+sequenceDiagram
+    actor R as Recruiter
+    participant S as LTI System
+    participant AI as Motor IA
+    participant CH as Canales de Publicación
 
-### Agent Skill Specification
-**Inputs:** [USER_VOICE_INPUT]
-**Outputs:** [CONFIRMATION_PROMPT], [ERROR_MESSAGE], [SCHEDULED_EVENT_DETAILS]
-**Logic Flow:**
-{
-  "steps": [
-    "Transcribe user input",
-    "Extract required entities (time, participants, etc.)",
-    "Resolve any ambiguities with clarifying questions",
-    "Confirm scheduling with user",
-    "Add event to calendar"
-  ]
-}
-**Error Handling:** Notify user of any missing or conflicting details and prompt for resolution.
-
-(For real-world agent skills, make sure examples are expanded with full placeholders and sample interactions.)
+    R->>S: Selecciona plantilla por rol
+    R->>S: Introduce parámetros de la vacante
+    S->>AI: Solicita generación de Job Description
+    AI-->>S: Devuelve JD optimizado con keywords
+    S-->>R: Muestra JD generado para revisión
+    R->>S: Aprueba o edita el JD
+    R->>S: Selecciona canales de publicación
+    S->>CH: Publica vacante simultáneamente
+    S-->>R: Confirma publicación y muestra alcance estimado
+```
 
 ---
 
-**Reminder:**
-Always use a step-by-step reasoning approach before presenting conclusions. Clearly identify objectives, inputs, outputs, and logic flow in structured formats. Use examples with placeholders as needed.
+### UC-02: Evaluación y matching inteligente de candidatos
 
+**Actor principal:** Recruiter (secundario: Hiring Manager, Motor IA)  
+**Objetivo:** Evaluar y priorizar candidatos de forma eficiente y objetiva usando el ranking automático con explicación de IA y scorecards estructurados.
 
-# USER PROMPT PARA EL SKILL CREATOR
-Help me create a new skills file based on the attached content. Make sure to include instructions for using the ‘https://github.com/mingrammer/diagrams’ library. Consider adding a Python script if needed to streamline the execution of the skills. For the c4 diagrams, make sure to use the official docs in "https://github.com/plantuml-stdlib/C4-PlantUML"
+**Precondiciones:**
+- Existe una vacante activa con candidatos en el pipeline.
+- Los scorecards y criterios de evaluación están configurados para el rol.
+
+**Postcondiciones:**
+- Los candidatos tienen un score asignado con justificación visible.
+- El Hiring Manager ha revisado y registrado su decisión estructurada.
+
+**Flujo básico:**
+
+1. El Recruiter abre el pipeline Kanban de la vacante y accede a la vista de candidatos.
+2. El sistema muestra el ranking automático generado por IA con score y explicación por candidato.
+3. El Recruiter filtra candidatos por score y revisa los perfiles priorizados.
+4. Mueve los candidatos seleccionados a la etapa de evaluación y asigna scorecards al Hiring Manager.
+5. El Hiring Manager completa el scorecard con sus valoraciones estructuradas.
+6. Ambos registran una decisión (avanzar / descartar / en espera) con comentario visible en el hilo.
+
+**Flujos alternativos:**
+- Si el Recruiter no está de acuerdo con el ranking de IA, puede sobreescribir manualmente la prioridad.
+- Si el Hiring Manager no completa el scorecard en plazo, el sistema envía recordatorio automático.
+
+**Diferenciador:** A diferencia de otros ATS, el matching de LTI es explicable: muestra al Recruiter por qué un candidato encaja (skills, experiencia, contexto), no solo un número opaco. Esto genera confianza y reduce el sesgo.
+
+**Impacto de negocio:** Mejora de la calidad de contratación al reducir la subjetividad. Reducción del tiempo de cribado. Mayor alineación entre Recruiter y Hiring Manager gracias a decisiones trazadas y justificadas.
+
+```mermaid
+flowchart TD
+    A([Recruiter abre pipeline de vacante]) --> B[Sistema muestra ranking IA\ncon score y explicación]
+    B --> C{¿Candidato cumple\ncriterios mínimos?}
+    C -->|Sí| D[Recruiter mueve candidato\na etapa de evaluación]
+    C -->|No| E[Candidato marcado\ncomo baja prioridad]
+    D --> F[Asigna scorecard\nal Hiring Manager]
+    F --> G[Hiring Manager completa\nvaloración estructurada]
+    G --> H[Recruiter y HM registran\ndecisión con comentario]
+    H --> I([Pipeline actualizado\ncon resultado trazado])
+    E --> J([Candidato en pool\npara futuras vacantes])
+```
+
+---
+
+### UC-03: Agendamiento self-service de entrevista
+
+**Actor principal:** Candidato (secundario: Recruiter, sistema de calendario)  
+**Objetivo:** Permitir al candidato seleccionar autónomamente el horario de su entrevista, eliminando la coordinación manual y mejorando su experiencia.
+
+**Precondiciones:**
+- El candidato ha superado la fase de cribado y está listo para entrevistar.
+- El Recruiter ha configurado el panel de entrevistadores y sus disponibilidades en el sistema.
+- Las integraciones con calendarios (Google/Outlook) están activas.
+
+**Postcondiciones:**
+- La entrevista queda agendada en los calendarios de todos los participantes.
+- Se envían recordatorios automáticos al candidato y al panel.
+
+**Flujo básico:**
+
+1. El Recruiter configura el panel de entrevista y consulta la disponibilidad de los participantes vía integración de calendario.
+2. El sistema genera los slots disponibles compatibles con todos los participantes.
+3. El candidato recibe un enlace de self-scheduling con los slots disponibles.
+4. El candidato selecciona su horario preferido desde el enlace (sin necesidad de cuenta).
+5. El sistema crea el evento en los calendarios de todos los participantes automáticamente.
+6. Se activan recordatorios automáticos (24h y 1h antes) para el candidato y el panel.
+
+**Flujos alternativos:**
+- Si ningún slot disponible se ajusta al candidato, puede solicitar al Recruiter ampliar la disponibilidad.
+- Si el candidato necesita reagendar, accede al mismo enlace para seleccionar un nuevo slot.
+
+**Diferenciador:** El self-scheduling convierte al candidato en protagonista activo del proceso, eliminando el intercambio de emails y reduciendo drásticamente el time-to-interview. Es una funcionalidad clave para la experiencia de candidato en un mercado tecnológico competitivo.
+
+**Impacto de negocio:** Reducción del tiempo de coordinación de entrevistas de días a horas. Mejora notable de la experiencia del candidato (NPS). Liberación de tiempo del Recruiter para tareas de mayor valor.
+
+```mermaid
+sequenceDiagram
+    actor C as Candidato
+    actor R as Recruiter
+    participant S as LTI System
+    participant CAL as Integración Calendario
+
+    R->>S: Configura panel de entrevista y disponibilidad
+    S->>CAL: Consulta disponibilidad de participantes
+    CAL-->>S: Devuelve slots disponibles compatibles
+    S->>C: Envía enlace de self-scheduling con slots
+    C->>S: Selecciona horario preferido
+    S->>CAL: Crea evento en calendarios de todos los participantes
+    S-->>C: Confirma la entrevista agendada
+    S-->>R: Notifica confirmación y activa recordatorios automáticos
+```
+
+## 6. Diagrama Entidad-Relación (ER)
+Este diagrama muestra las principales entidades del sistema ATS LTI, sus atributos clave y las relaciones entre ellas. Refleja la estructura de datos necesaria para soportar las funcionalidades descritas en los casos de uso, incluyendo la gestión de usuarios, candidatos, vacantes, aplicaciones, evaluaciones, entrevistas y decisiones.
+
+```mermaid
+erDiagram
+
+    USUARIO {
+        int id_usuario PK
+        string nombre
+        string email
+        string rol "RECRUITER | HIRING_MANAGER"
+        timestamp fecha_creacion
+        timestamp fecha_actualizacion
+        boolean activo
+    }
+
+    CANDIDATO {
+        int id_candidato PK
+        string nombre
+        string email
+        string telefono
+        timestamp fecha_creacion
+        timestamp fecha_actualizacion
+        boolean activo
+    }
+
+    VACANTE {
+        int id_vacante PK
+        int id_usuario FK
+        string titulo
+        string estado "BORRADOR | ACTIVA | CERRADA | PAUSADA"
+        timestamp fecha_creacion
+        timestamp fecha_actualizacion
+        boolean activo
+    }
+
+    DESCRIPCION_PUESTO {
+        int id_descripcion PK
+        int id_vacante FK
+        text contenido_generado
+        int version
+        string estado "BORRADOR | APROBADO"
+        timestamp fecha_creacion
+        timestamp fecha_actualizacion
+        boolean activo
+    }
+
+    CANAL_PUBLICACION {
+        int id_canal PK
+        string nombre
+        string tipo "BOLSA_EMPLEO | RRSS | PAGINA_CARRERAS"
+        boolean integrado
+        timestamp fecha_creacion
+        timestamp fecha_actualizacion
+        boolean activo
+    }
+
+    PUBLICACION_VACANTE {
+        int id_publicacion PK
+        int id_vacante FK
+        int id_canal FK
+        string estado "PUBLICADO | PENDIENTE | ERROR"
+        timestamp fecha_publicacion
+        int alcance_estimado
+        timestamp fecha_creacion
+        timestamp fecha_actualizacion
+        boolean activo
+    }
+
+    APLICACION {
+        int id_aplicacion PK
+        int id_candidato FK
+        int id_vacante FK
+        string etapa "NUEVO | CRIBADO | EVALUACION | ENTREVISTA | DECISION"
+        timestamp fecha_aplicacion
+        timestamp fecha_creacion
+        timestamp fecha_actualizacion
+        boolean activo
+    }
+
+    SCORECARD {
+        int id_scorecard PK
+        int id_vacante FK
+        string nombre
+        text criterios
+        timestamp fecha_creacion
+        timestamp fecha_actualizacion
+        boolean activo
+    }
+
+    EVALUACION_CANDIDATO {
+        int id_evaluacion PK
+        int id_aplicacion FK
+        int id_scorecard FK
+        int id_usuario FK
+        decimal puntuacion_total
+        text comentarios
+        string estado "PENDIENTE | COMPLETADO"
+        timestamp fecha_creacion
+        timestamp fecha_actualizacion
+        boolean activo
+    }
+
+    MATCHING_IA {
+        int id_matching PK
+        int id_aplicacion FK
+        decimal score
+        text explicacion
+        timestamp fecha_generacion
+        timestamp fecha_creacion
+        timestamp fecha_actualizacion
+        boolean activo
+    }
+
+    DECISION {
+        int id_decision PK
+        int id_aplicacion FK
+        int id_usuario FK
+        string tipo "AVANZAR | DESCARTAR | EN_ESPERA"
+        text comentario
+        timestamp fecha_creacion
+        timestamp fecha_actualizacion
+        boolean activo
+    }
+
+    PANEL_ENTREVISTA {
+        int id_panel PK
+        int id_vacante FK
+        string nombre
+        string tipo_entrevista "TECNICA | CULTURAL | COMPETENCIAS"
+        timestamp fecha_creacion
+        timestamp fecha_actualizacion
+        boolean activo
+    }
+
+    PANEL_ENTREVISTADOR {
+        int id_panel_entrevistador PK
+        int id_panel FK
+        int id_usuario FK
+        string rol_en_panel "LIDER | MIEMBRO"
+        timestamp fecha_creacion
+        timestamp fecha_actualizacion
+        boolean activo
+    }
+
+    SLOT_DISPONIBLE {
+        int id_slot PK
+        int id_panel FK
+        timestamp fecha_hora_inicio
+        timestamp fecha_hora_fin
+        boolean disponible
+        timestamp fecha_creacion
+        timestamp fecha_actualizacion
+        boolean activo
+    }
+
+    ENTREVISTA {
+        int id_entrevista PK
+        int id_aplicacion FK
+        int id_panel FK
+        int id_slot FK
+        string estado "PENDIENTE | CONFIRMADA | COMPLETADA | CANCELADA"
+        string enlace_reunion
+        timestamp fecha_creacion
+        timestamp fecha_actualizacion
+        boolean activo
+    }
+
+    RECORDATORIO {
+        int id_recordatorio PK
+        int id_entrevista FK
+        string tipo "24H | 1H"
+        string destinatario_tipo "CANDIDATO | ENTREVISTADOR"
+        timestamp fecha_envio
+        boolean enviado
+        timestamp fecha_creacion
+        timestamp fecha_actualizacion
+        boolean activo
+    }
+
+    %% UC-01: Publicación de vacante asistida por IA
+    USUARIO          ||--o{ VACANTE              : "crea"
+    VACANTE          ||--o| DESCRIPCION_PUESTO   : "genera con IA"
+    VACANTE          ||--o{ PUBLICACION_VACANTE  : "se publica en"
+    CANAL_PUBLICACION||--o{ PUBLICACION_VACANTE  : "recibe publicación de"
+
+    %% UC-02: Evaluación y matching inteligente
+    CANDIDATO        ||--o{ APLICACION           : "genera"
+    VACANTE          ||--o{ APLICACION           : "recibe"
+    VACANTE          ||--o{ SCORECARD            : "define"
+    APLICACION       ||--o{ EVALUACION_CANDIDATO : "tiene"
+    SCORECARD        ||--o{ EVALUACION_CANDIDATO : "estructura"
+    USUARIO          ||--o{ EVALUACION_CANDIDATO : "completa"
+    APLICACION       ||--o| MATCHING_IA          : "analiza IA"
+    APLICACION       ||--o{ DECISION             : "resulta en"
+    USUARIO          ||--o{ DECISION             : "registra"
+
+    %% UC-03: Agendamiento self-service de entrevista
+    VACANTE          ||--o{ PANEL_ENTREVISTA     : "tiene"
+    PANEL_ENTREVISTA ||--o{ PANEL_ENTREVISTADOR  : "compuesto por"
+    USUARIO          ||--o{ PANEL_ENTREVISTADOR  : "participa en"
+    PANEL_ENTREVISTA ||--o{ SLOT_DISPONIBLE      : "ofrece"
+    APLICACION       ||--o{ ENTREVISTA           : "programa"
+    PANEL_ENTREVISTA ||--o{ ENTREVISTA           : "ejecuta"
+    SLOT_DISPONIBLE  ||--o| ENTREVISTA           : "reservado por"
+    ENTREVISTA       ||--o{ RECORDATORIO         : "genera"
+```
+
+## 7. Diagrama de Arquitectura
+Este diagrama muestra la arquitectura técnica propuesta para el sistema ATS LTI, destacando los principales componentes, servicios, bases de datos, integraciones externas y flujos de comunicación entre ellos. La arquitectura está diseñada para ser escalable, segura y altamente disponible, utilizando servicios gestionados en la nube (AWS) y siguiendo buenas prácticas de diseño de software.
+
+```mermaid
+graph TB
+    subgraph CLIENTS["Clientes"]
+        WEB["Web App\n(React)"]
+        MOB["Mobile App\n(React Native)"]
+        CAND["Portal Candidato\n(Next.js)"]
+    end
+
+    subgraph EDGE["Capa de borde — AWS Edge"]
+        CF["Amazon CloudFront\n(CDN)"]
+        WAF["AWS WAF\n(Firewall)"]
+    end
+
+    subgraph AUTH["Autenticación — AWS Cognito"]
+        COG["Amazon Cognito\nUser Pools + Identity Pools"]
+    end
+
+    subgraph GATEWAY["API Layer"]
+        APIGW["Amazon API Gateway\n(REST + WebSocket)"]
+        ALB["Application Load Balancer"]
+    end
+
+    subgraph SERVICES["Microservicios — Amazon ECS Fargate"]
+        SVC_VAC["Servicio Vacantes\n(UC-01)"]
+        SVC_CAND["Servicio Candidatos"]
+        SVC_EVAL["Servicio Evaluación\n(UC-02)"]
+        SVC_SCHED["Servicio Scheduling\n(UC-03)"]
+        SVC_NOTIF["Servicio Notificaciones"]
+        SVC_AI["Servicio IA\n(Matching + JD)"]
+    end
+
+    subgraph MESSAGING["Mensajería asíncrona"]
+        SQS["Amazon SQS\n(Colas de eventos)"]
+        SNS["Amazon SNS\n(Fan-out de eventos)"]
+        EB["Amazon EventBridge\n(Orquestación)"]
+    end
+
+    subgraph DATA["Capa de datos"]
+        AURORA["Amazon Aurora PostgreSQL\n(Multi-AZ)"]
+        REDIS["Amazon ElastiCache Redis\n(Caché + Sesión)"]
+        S3["Amazon S3\n(CVs, documentos, assets)"]
+        OS["Amazon OpenSearch\n(Búsqueda semántica)"]
+    end
+
+    subgraph AI_LAYER["Capa de IA — AWS AI Services"]
+        BEDROCK["Amazon Bedrock\n(LLM: generación JD,\nresúmenes, preguntas)"]
+        SAGEMAKER["Amazon SageMaker\n(Modelo scoring candidatos)"]
+    end
+
+    subgraph INTEGRATIONS["Integraciones externas"]
+        GCAL["Google Calendar API"]
+        OUTLOOK["Microsoft Graph API\n(Outlook Calendar)"]
+        JOBBOARDS["Job Boards\n(LinkedIn, InfoJobs, etc.)"]
+        HRIS["HRIS externos\n(BambooHR, Workday)"]
+    end
+
+    subgraph OBS["Observabilidad"]
+        CW["Amazon CloudWatch\n(Logs, Métricas, Alarmas)"]
+        XRAY["AWS X-Ray\n(Trazas distribuidas)"]
+    end
+
+    subgraph SECURITY["Seguridad transversal"]
+        SM["AWS Secrets Manager"]
+        KMS["AWS KMS\n(Cifrado en reposo)"]
+        IAM["AWS IAM\n(Roles y políticas)"]
+    end
+
+    subgraph CICD["CI/CD"]
+        CP["AWS CodePipeline"]
+        CDK["AWS CDK\n(Infrastructure as Code)"]
+        ECR["Amazon ECR\n(Registro de contenedores)"]
+    end
+
+    %% Flujo de clientes → edge
+    WEB --> CF
+    MOB --> CF
+    CAND --> CF
+    CF --> WAF
+    WAF --> APIGW
+
+    %% Auth
+    APIGW --> COG
+    COG --> APIGW
+
+    %% API → servicios
+    APIGW --> ALB
+    ALB --> SVC_VAC
+    ALB --> SVC_CAND
+    ALB --> SVC_EVAL
+    ALB --> SVC_SCHED
+    ALB --> SVC_NOTIF
+
+    %% Servicios → datos
+    SVC_VAC --> AURORA
+    SVC_VAC --> REDIS
+    SVC_VAC --> S3
+    SVC_CAND --> AURORA
+    SVC_CAND --> OS
+    SVC_EVAL --> AURORA
+    SVC_EVAL --> REDIS
+    SVC_SCHED --> AURORA
+    SVC_SCHED --> REDIS
+    SVC_NOTIF --> AURORA
+
+    %% Servicios → IA
+    SVC_VAC --> SVC_AI
+    SVC_EVAL --> SVC_AI
+    SVC_AI --> BEDROCK
+    SVC_AI --> SAGEMAKER
+
+    %% Mensajería
+    SVC_VAC --> SNS
+    SVC_EVAL --> SNS
+    SVC_SCHED --> SNS
+    SNS --> SQS
+    SQS --> SVC_NOTIF
+    SQS --> EB
+    EB --> SVC_SCHED
+
+    %% Integraciones externas
+    SVC_SCHED --> GCAL
+    SVC_SCHED --> OUTLOOK
+    SVC_VAC --> JOBBOARDS
+    SVC_CAND --> HRIS
+
+    %% Seguridad
+    SVC_VAC --> SM
+    SVC_EVAL --> SM
+    SVC_SCHED --> SM
+    AURORA --> KMS
+    S3 --> KMS
+
+    %% Observabilidad
+    SVC_VAC --> CW
+    SVC_EVAL --> CW
+    SVC_SCHED --> CW
+    SVC_AI --> CW
+    ALB --> XRAY
+
+    %% CI/CD
+    CP --> ECR
+    ECR --> SVC_VAC
+    ECR --> SVC_EVAL
+    ECR --> SVC_SCHED
+    CDK --> CP
+```
+
+## 7. C4 Diagrama de Contenedores
+
+### Context Diagram
+
+Este diagrama de contexto (C1) muestra el sistema ATS LTI en su entorno, identificando los actores principales (recruiters, hiring managers, candidatos) y las integraciones clave con sistemas externos (calendarios, job boards, HRIS, email/SMS).
+
+```plantuml
+@startuml "C4_Context_ATS_LTI"
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+LAYOUT_TOP_DOWN()
+LAYOUT_WITH_LEGEND()
+
+title System Context – ATS LTI
+
+Person(recruiter, "Recruiter", "Gestiona vacantes, candidatos y el pipeline de selección")
+Person(hiring_manager, "Hiring Manager", "Evalúa candidatos y toma decisiones de contratación")
+Person_Ext(candidato, "Candidato", "Postula a vacantes y agenda entrevistas de forma autónoma")
+
+System(ats_lti, "ATS LTI", "Plataforma centralizada de gestión del proceso de reclutamiento con automatización e IA")
+
+System_Ext(google_cal, "Google Calendar", "Gestión de disponibilidad y creación de eventos de entrevista")
+System_Ext(outlook_cal, "Microsoft Outlook Calendar", "Gestión de disponibilidad y creación de eventos de entrevista")
+System_Ext(job_boards, "Job Boards\n(LinkedIn, InfoJobs)", "Publicación multicanal de vacantes")
+System_Ext(hris, "HRIS\n(BambooHR, Workday)", "Sincronización de datos de empleados y posiciones")
+System_Ext(email_sms, "Proveedor Email/SMS\n(Amazon SES/SNS)", "Envío de notificaciones y recordatorios")
+
+Rel(recruiter, ats_lti, "Crea vacantes, gestiona pipeline y evalúa candidatos", "HTTPS")
+Rel(hiring_manager, ats_lti, "Completa scorecards y registra decisiones", "HTTPS")
+Rel(candidato, ats_lti, "Postula a vacantes y selecciona slot de entrevista", "HTTPS")
+
+Rel(ats_lti, google_cal, "Consulta disponibilidad y crea eventos", "HTTPS / Google Calendar API")
+Rel(ats_lti, outlook_cal, "Consulta disponibilidad y crea eventos", "HTTPS / Microsoft Graph API")
+Rel(ats_lti, job_boards, "Publica vacantes en múltiples canales", "HTTPS / REST API")
+Rel(ats_lti, hris, "Sincroniza posiciones y datos de empleados", "HTTPS / REST API")
+Rel(ats_lti, email_sms, "Envía notificaciones, recordatorios y comunicaciones", "HTTPS / SMTP")
+
+@enduml
+```
+
+### Container Diagram
+Este diagrama de contenedores (C2) detalla la arquitectura interna del sistema ATS LTI, mostrando los principales contenedores (web app, mobile app, servicios backend, bases de datos) y sus interacciones, así como las integraciones con sistemas externos.
+
+```plantuml
+@startuml "C4_Container_ATS_LTI"
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+LAYOUT_TOP_DOWN()
+LAYOUT_WITH_LEGEND()
+
+title Container Diagram – ATS LTI
+
+Person(recruiter, "Recruiter", "Gestiona vacantes y pipeline")
+Person(hiring_manager, "Hiring Manager", "Evalúa y decide sobre candidatos")
+Person_Ext(candidato, "Candidato", "Postula y agenda entrevistas")
+
+System_Ext(google_cal, "Google Calendar API")
+System_Ext(outlook_cal, "Microsoft Graph API")
+System_Ext(job_boards, "Job Boards")
+System_Ext(hris, "HRIS")
+System_Ext(email_sms, "Amazon SES / SNS")
+
+System_Boundary(ats_lti, "ATS LTI – AWS Cloud") {
+
+    Container(web_app, "Web App", "React, TypeScript", "Interfaz principal para Recruiters y Hiring Managers")
+    Container(mobile_app, "Mobile App", "React Native", "Acceso móvil para Recruiters y Hiring Managers")
+    Container(candidate_portal, "Portal del Candidato", "Next.js, TypeScript", "Portal self-service para candidatos: postulación y scheduling")
+
+    Container(cdn_waf, "CloudFront + WAF", "Amazon CloudFront, AWS WAF", "CDN global y firewall de aplicación web")
+    Container(cognito, "Auth Service", "Amazon Cognito", "Autenticación y autorización con tokens JWT")
+    Container(api_gw, "API Gateway", "Amazon API Gateway", "Enrutamiento REST y WebSocket hacia microservicios")
+    Container(alb, "Load Balancer", "AWS Application Load Balancer", "Distribución de tráfico hacia microservicios con health checks")
+
+    Container(svc_vacantes, "Servicio Vacantes", "Node.js, Express, ECS Fargate", "UC-01: Gestión de vacantes, JD con IA y publicación multicanal")
+    Container(svc_candidatos, "Servicio Candidatos", "Node.js, Express, ECS Fargate", "Gestión de la base de talento y sourcing")
+    Container(svc_evaluacion, "Servicio Evaluación", "Node.js, Express, ECS Fargate", "UC-02: Matching IA, scorecards y decisiones estructuradas")
+    Container(svc_scheduling, "Servicio Scheduling", "Node.js, Express, ECS Fargate", "UC-03: Gestión de paneles, slots y entrevistas self-service")
+    Container(svc_notificaciones, "Servicio Notificaciones", "Node.js, ECS Fargate", "Envío de recordatorios y comunicaciones automatizadas")
+    Container(svc_ia, "Servicio IA", "Python, FastAPI, ECS Fargate", "Generación de JD, matching candidato-vacante y resúmenes")
+
+    Container(message_bus, "Bus de Mensajería", "Amazon SQS, SNS, EventBridge", "Comunicación asíncrona entre microservicios")
+
+    ContainerDb(aurora_db, "Base de Datos Relacional", "Amazon Aurora PostgreSQL Multi-AZ", "Datos transaccionales: vacantes, candidatos, aplicaciones, entrevistas")
+    ContainerDb(redis_cache, "Caché / Sesión", "Amazon ElastiCache Redis", "Caché de rankings, sesiones de usuario y slots disponibles")
+    ContainerDb(s3_storage, "Almacenamiento de Objetos", "Amazon S3", "CVs, documentos adjuntos y assets estáticos")
+    ContainerDb(opensearch, "Motor de Búsqueda", "Amazon OpenSearch", "Búsqueda semántica de candidatos por skills y experiencia")
+    Container(bedrock, "LLM Service", "Amazon Bedrock", "Generación de job descriptions, resúmenes y preguntas de entrevista")
+    Container(sagemaker, "Scoring Model", "Amazon SageMaker", "Modelo propio de scoring y matching candidato-vacante")
+}
+
+Rel(recruiter, cdn_waf, "Usa", "HTTPS")
+Rel(hiring_manager, cdn_waf, "Usa", "HTTPS")
+Rel(candidato, cdn_waf, "Usa", "HTTPS")
+
+Rel(cdn_waf, web_app, "Sirve", "HTTPS")
+Rel(cdn_waf, mobile_app, "Sirve", "HTTPS")
+Rel(cdn_waf, candidate_portal, "Sirve", "HTTPS")
+Rel(cdn_waf, api_gw, "Enruta peticiones API", "HTTPS")
+
+Rel(web_app, api_gw, "Llama a", "HTTPS / REST, WebSocket")
+Rel(mobile_app, api_gw, "Llama a", "HTTPS / REST")
+Rel(candidate_portal, api_gw, "Llama a", "HTTPS / REST")
+
+Rel(api_gw, cognito, "Valida tokens JWT", "HTTPS")
+Rel(api_gw, alb, "Enruta hacia microservicios", "HTTP")
+
+Rel(alb, svc_vacantes, "Enruta", "HTTP")
+Rel(alb, svc_candidatos, "Enruta", "HTTP")
+Rel(alb, svc_evaluacion, "Enruta", "HTTP")
+Rel(alb, svc_scheduling, "Enruta", "HTTP")
+
+Rel(svc_vacantes, aurora_db, "Lee y escribe", "SQL / port 5432")
+Rel(svc_vacantes, s3_storage, "Almacena documentos", "AWS SDK")
+Rel(svc_vacantes, svc_ia, "Solicita generación de JD", "HTTP / REST")
+Rel(svc_vacantes, message_bus, "Publica eventos de vacante", "AWS SDK")
+Rel(svc_vacantes, job_boards, "Publica vacantes", "HTTPS / REST API")
+
+Rel(svc_candidatos, aurora_db, "Lee y escribe", "SQL / port 5432")
+Rel(svc_candidatos, opensearch, "Indexa y busca candidatos", "HTTPS / REST")
+Rel(svc_candidatos, s3_storage, "Almacena CVs", "AWS SDK")
+Rel(svc_candidatos, hris, "Sincroniza datos", "HTTPS / REST API")
+
+Rel(svc_evaluacion, aurora_db, "Lee y escribe", "SQL / port 5432")
+Rel(svc_evaluacion, redis_cache, "Cachea rankings", "Redis protocol")
+Rel(svc_evaluacion, svc_ia, "Solicita scoring y matching", "HTTP / REST")
+Rel(svc_evaluacion, message_bus, "Publica decisiones y cambios de etapa", "AWS SDK")
+
+Rel(svc_scheduling, aurora_db, "Lee y escribe", "SQL / port 5432")
+Rel(svc_scheduling, redis_cache, "Cachea slots disponibles", "Redis protocol")
+Rel(svc_scheduling, google_cal, "Consulta disponibilidad y crea eventos", "HTTPS / Google API")
+Rel(svc_scheduling, outlook_cal, "Consulta disponibilidad y crea eventos", "HTTPS / Graph API")
+Rel(svc_scheduling, message_bus, "Publica eventos de entrevista", "AWS SDK")
+
+Rel(svc_notificaciones, aurora_db, "Lee estado de recordatorios", "SQL / port 5432")
+Rel(svc_notificaciones, email_sms, "Envía emails y SMS", "HTTPS / SMTP")
+Rel(message_bus, svc_notificaciones, "Entrega eventos de notificación", "AWS SDK")
+
+Rel(svc_ia, bedrock, "Genera contenido con LLM", "HTTPS / AWS SDK")
+Rel(svc_ia, sagemaker, "Invoca modelo de scoring", "HTTPS / AWS SDK")
+
+@enduml
+```
+
+### Component Diagram – AI Microservices
+Este diagrama de componentes (C3) se enfoca en el Servicio de Evaluación (UC-02), mostrando sus componentes internos (controladores, servicios de dominio, repositorios, adaptadores) y cómo interactúan entre sí y con otros sistemas (base de datos, servicio IA, bus de mensajería).
+
+```plantuml
+@startuml "C4_Component_EvaluacionService"
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+LAYOUT_TOP_DOWN()
+LAYOUT_WITH_LEGEND()
+
+title Component Diagram – Servicio de Evaluación (UC-02)
+
+Container_Ext(alb, "Application Load Balancer", "AWS ALB", "Enruta peticiones HTTP al servicio")
+Container_Ext(svc_ia, "Servicio IA", "Python, FastAPI", "Proporciona scoring y matching explicable")
+ContainerDb_Ext(aurora_db, "Aurora PostgreSQL", "Base de datos relacional", "Almacena aplicaciones, scorecards y decisiones")
+ContainerDb_Ext(redis_cache, "ElastiCache Redis", "Caché", "Rankings en memoria y caché de scorecards")
+Container_Ext(message_bus, "Bus de Mensajería", "SQS / SNS / EventBridge", "Recibe y publica eventos de dominio")
+
+Container_Boundary(svc_evaluacion, "Servicio de Evaluación – Node.js / ECS Fargate") {
+
+    Component(pipeline_controller, "Pipeline Controller", "Express REST Controller", "Expone endpoints para gestionar la etapa de los candidatos en el pipeline")
+    Component(scorecard_controller, "Scorecard Controller", "Express REST Controller", "Expone endpoints para crear y completar scorecards por vacante")
+    Component(matching_controller, "Matching Controller", "Express REST Controller", "Expone endpoints para obtener el ranking IA y su explicación")
+    Component(decision_controller, "Decision Controller", "Express REST Controller", "Expone endpoints para registrar decisiones estructuradas")
+
+    Component(pipeline_service, "Pipeline Service", "Domain Service", "Lógica de negocio para cambios de etapa, validaciones y reglas del funnel")
+    Component(scorecard_service, "Scorecard Service", "Domain Service", "Lógica de asignación de scorecards y cálculo de puntuación total")
+    Component(matching_service, "Matching Service", "Domain Service", "Orquesta la llamada al Servicio IA y persiste el resultado explicable")
+    Component(decision_service, "Decision Service", "Domain Service", "Valida y persiste decisiones, publica evento de dominio")
+
+    Component(aplicacion_repo, "Aplicacion Repository", "Repository Pattern", "Acceso a datos de APLICACION en Aurora")
+    Component(scorecard_repo, "Scorecard Repository", "Repository Pattern", "Acceso a datos de SCORECARD y EVALUACION_CANDIDATO en Aurora")
+    Component(matching_repo, "Matching Repository", "Repository Pattern", "Acceso a datos de MATCHING_IA en Aurora y caché Redis")
+    Component(decision_repo, "Decision Repository", "Repository Pattern", "Acceso a datos de DECISION en Aurora")
+
+    Component(ia_adapter, "IA Adapter", "HTTP Client", "Adaptador para llamar al Servicio IA (scoring y matching)")
+    Component(event_publisher, "Event Publisher", "AWS SDK SQS/SNS", "Publica eventos de dominio al bus de mensajería")
+}
+
+Rel(alb, pipeline_controller, "Enruta peticiones REST", "HTTP")
+Rel(alb, scorecard_controller, "Enruta peticiones REST", "HTTP")
+Rel(alb, matching_controller, "Enruta peticiones REST", "HTTP")
+Rel(alb, decision_controller, "Enruta peticiones REST", "HTTP")
+
+Rel(pipeline_controller, pipeline_service, "Delega lógica de negocio")
+Rel(scorecard_controller, scorecard_service, "Delega lógica de negocio")
+Rel(matching_controller, matching_service, "Delega lógica de negocio")
+Rel(decision_controller, decision_service, "Delega lógica de negocio")
+
+Rel(pipeline_service, aplicacion_repo, "Lee y actualiza etapa de aplicación")
+Rel(pipeline_service, event_publisher, "Publica CandidatoAvanzado / CandidatoDescartado")
+
+Rel(scorecard_service, scorecard_repo, "Lee scorecard y persiste evaluación")
+Rel(scorecard_service, aplicacion_repo, "Verifica estado de la aplicación")
+
+Rel(matching_service, ia_adapter, "Solicita score y explicación")
+Rel(matching_service, matching_repo, "Persiste y recupera resultado de matching")
+
+Rel(decision_service, decision_repo, "Persiste decisión estructurada")
+Rel(decision_service, aplicacion_repo, "Actualiza etapa final")
+Rel(decision_service, event_publisher, "Publica DecisionRegistrada")
+
+Rel(aplicacion_repo, aurora_db, "SQL: APLICACION", "SQL / port 5432")
+Rel(scorecard_repo, aurora_db, "SQL: SCORECARD, EVALUACION_CANDIDATO", "SQL / port 5432")
+Rel(matching_repo, aurora_db, "SQL: MATCHING_IA", "SQL / port 5432")
+Rel(matching_repo, redis_cache, "Caché de rankings por vacante", "Redis protocol")
+Rel(decision_repo, aurora_db, "SQL: DECISION", "SQL / port 5432")
+
+Rel(ia_adapter, svc_ia, "POST /score, POST /match", "HTTP / REST")
+Rel(event_publisher, message_bus, "Publica eventos de dominio", "AWS SDK")
+
+@enduml
+```
+
+## Code Diagram – Matching Service
+
+El diagrama de código detalla la estructura interna del componente **Matching Service**, responsable de orquestar el scoring y matching de candidatos con IA explicable. Se muestran las clases principales, sus relaciones y responsabilidades.
+
+```plantuml
+@startuml "C4_Code_MatchingService"
+!theme plain
+skinparam linetype ortho
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
+title Code Diagram – Matching Service (UC-02)
+
+package "API Layer" #DDDDDD {
+    class MatchingController <<REST Controller>> {
+        - matchingService: IMatchingService
+        --
+        + getMatchingScore(applicationId: string): MatchingResultDTO
+        + getRankingByVacancy(vacancyId: string): MatchingResultDTO[]
+        + refreshMatching(applicationId: string): MatchingResultDTO
+    }
+    
+    class MatchingResultDTO <<DTO>> {
+        + applicationId: string
+        + candidateId: string
+        + vacancyId: string
+        + score: number
+        + explanation: ExplanationDTO
+        + generatedAt: Date
+    }
+    
+    class ExplanationDTO <<DTO>> {
+        + skillsMatch: SkillMatchDTO[]
+        + experienceScore: number
+        + educationScore: number
+        + overallSummary: string
+        + strengthsList: string[]
+        + gapsList: string[]
+    }
+    
+    class SkillMatchDTO <<DTO>> {
+        + skillName: string
+        + required: boolean
+        + candidateLevel: string
+        + matchPercentage: number
+    }
+}
+
+package "Domain Layer" #E8F4E8 {
+    interface IMatchingService <<interface>> {
+        + calculateMatching(application: Application): Promise<MatchingResult>
+        + getMatchingResult(applicationId: ApplicationId): Promise<MatchingResult>
+        + getRankingForVacancy(vacancyId: VacancyId): Promise<MatchingResult[]>
+        + invalidateCache(vacancyId: VacancyId): Promise<void>
+    }
+    
+    class MatchingService <<Domain Service>> {
+        - matchingRepository: IMatchingRepository
+        - iaAdapter: IIAAdapter
+        - scoringStrategy: IScoringStrategy
+        - cacheManager: ICacheManager
+        --
+        + calculateMatching(application: Application): Promise<MatchingResult>
+        + getMatchingResult(applicationId: ApplicationId): Promise<MatchingResult>
+        + getRankingForVacancy(vacancyId: VacancyId): Promise<MatchingResult[]>
+        + invalidateCache(vacancyId: VacancyId): Promise<void>
+        - buildMatchingRequest(application: Application): MatchingRequest
+        - mapToMatchingResult(response: IAResponse): MatchingResult
+    }
+    
+    interface IScoringStrategy <<interface>> {
+        + computeScore(candidate: Candidate, vacancy: Vacancy): ScoringInput
+    }
+    
+    class WeightedScoringStrategy <<Strategy>> {
+        - skillWeight: number
+        - experienceWeight: number
+        - educationWeight: number
+        --
+        + computeScore(candidate: Candidate, vacancy: Vacancy): ScoringInput
+    }
+    
+    class MLScoringStrategy <<Strategy>> {
+        - modelEndpoint: string
+        --
+        + computeScore(candidate: Candidate, vacancy: Vacancy): ScoringInput
+    }
+}
+
+package "Domain Model" #FFF8E1 {
+    class MatchingResult <<Entity>> {
+        - id: MatchingId
+        - applicationId: ApplicationId
+        - score: Score
+        - explanation: Explanation
+        - generatedAt: Date
+        - status: MatchingStatus
+        --
+        + isValid(): boolean
+        + needsRefresh(): boolean
+        + toDTO(): MatchingResultDTO
+    }
+    
+    class Score <<Value Object>> {
+        - value: number
+        - confidence: number
+        --
+        + getValue(): number
+        + getConfidence(): number
+        + isHighConfidence(): boolean
+        {static} + create(value: number, confidence: number): Score
+    }
+    
+    class Explanation <<Value Object>> {
+        - skillsAnalysis: SkillAnalysis[]
+        - experienceScore: number
+        - educationScore: number
+        - summary: string
+        - strengths: string[]
+        - gaps: string[]
+        --
+        + getTopStrengths(n: number): string[]
+        + getTopGaps(n: number): string[]
+        + toDTO(): ExplanationDTO
+    }
+    
+    class SkillAnalysis <<Value Object>> {
+        - skillName: string
+        - required: boolean
+        - candidateLevel: SkillLevel
+        - matchPercentage: number
+        --
+        + isCriticalGap(): boolean
+        + toDTO(): SkillMatchDTO
+    }
+    
+    enum MatchingStatus <<Enumeration>> {
+        PENDING
+        CALCULATED
+        FAILED
+        EXPIRED
+    }
+    
+    enum SkillLevel <<Enumeration>> {
+        NONE
+        BEGINNER
+        INTERMEDIATE
+        ADVANCED
+        EXPERT
+    }
+    
+    class ApplicationId <<Value Object>> {
+        - value: string
+        --
+        + getValue(): string
+        {static} + create(value: string): ApplicationId
+    }
+    
+    class VacancyId <<Value Object>> {
+        - value: string
+        --
+        + getValue(): string
+        {static} + create(value: string): VacancyId
+    }
+    
+    class MatchingId <<Value Object>> {
+        - value: string
+        --
+        + getValue(): string
+        {static} + generate(): MatchingId
+    }
+}
+
+package "Infrastructure Layer" #E3F2FD {
+    interface IMatchingRepository <<interface>> {
+        + save(result: MatchingResult): Promise<void>
+        + findById(id: MatchingId): Promise<MatchingResult | null>
+        + findByApplicationId(appId: ApplicationId): Promise<MatchingResult | null>
+        + findByVacancyId(vacancyId: VacancyId): Promise<MatchingResult[]>
+        + deleteExpired(): Promise<number>
+    }
+    
+    class MatchingRepository <<Repository>> {
+        - dbClient: DatabaseClient
+        - cacheClient: CacheClient
+        - mapper: MatchingMapper
+        --
+        + save(result: MatchingResult): Promise<void>
+        + findById(id: MatchingId): Promise<MatchingResult | null>
+        + findByApplicationId(appId: ApplicationId): Promise<MatchingResult | null>
+        + findByVacancyId(vacancyId: VacancyId): Promise<MatchingResult[]>
+        + deleteExpired(): Promise<number>
+        - cacheKey(id: string): string
+    }
+    
+    interface IIAAdapter <<interface>> {
+        + requestMatching(request: MatchingRequest): Promise<IAResponse>
+        + healthCheck(): Promise<boolean>
+    }
+    
+    class IAAdapter <<Adapter>> {
+        - httpClient: HttpClient
+        - baseUrl: string
+        - timeout: number
+        - retryPolicy: RetryPolicy
+        --
+        + requestMatching(request: MatchingRequest): Promise<IAResponse>
+        + healthCheck(): Promise<boolean>
+        - handleError(error: Error): never
+    }
+    
+    class MatchingRequest <<DTO>> {
+        + candidateProfile: CandidateProfile
+        + vacancyRequirements: VacancyRequirements
+        + scoringInput: ScoringInput
+    }
+    
+    class IAResponse <<DTO>> {
+        + score: number
+        + confidence: number
+        + skillsAnalysis: object[]
+        + experienceScore: number
+        + educationScore: number
+        + summary: string
+        + strengths: string[]
+        + gaps: string[]
+    }
+    
+    interface ICacheManager <<interface>> {
+        + get<T>(key: string): Promise<T | null>
+        + set<T>(key: string, value: T, ttl: number): Promise<void>
+        + invalidate(pattern: string): Promise<void>
+    }
+    
+    class RedisCacheManager <<Infrastructure>> {
+        - redisClient: RedisClient
+        --
+        + get<T>(key: string): Promise<T | null>
+        + set<T>(key: string, value: T, ttl: number): Promise<void>
+        + invalidate(pattern: string): Promise<void>
+    }
+}
+
+' Relaciones API → Domain
+MatchingController --> IMatchingService : uses
+MatchingController ..> MatchingResultDTO : returns
+MatchingResultDTO *-- ExplanationDTO
+ExplanationDTO *-- SkillMatchDTO
+
+' Relaciones Domain Service
+IMatchingService <|.. MatchingService : implements
+MatchingService --> IMatchingRepository : uses
+MatchingService --> IIAAdapter : uses
+MatchingService --> IScoringStrategy : uses
+MatchingService --> ICacheManager : uses
+IScoringStrategy <|.. WeightedScoringStrategy : implements
+IScoringStrategy <|.. MLScoringStrategy : implements
+
+' Relaciones Domain Model
+MatchingResult *-- Score
+MatchingResult *-- Explanation
+MatchingResult *-- MatchingId
+MatchingResult *-- ApplicationId
+MatchingResult --> MatchingStatus
+Explanation *-- SkillAnalysis
+SkillAnalysis --> SkillLevel
+
+' Relaciones Infrastructure
+IMatchingRepository <|.. MatchingRepository : implements
+IIAAdapter <|.. IAAdapter : implements
+ICacheManager <|.. RedisCacheManager : implements
+IAAdapter ..> MatchingRequest : sends
+IAAdapter ..> IAResponse : receives
+MatchingRepository --> MatchingResult : persists
+
+@enduml
+```
+
