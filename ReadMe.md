@@ -1,142 +1,218 @@
-# ES
+<div align="center">
 
-Ya has aprendido los básicos de análisis y diseño de sistemas de software, y algunas de las herramientas de diagramas más relevantes.
+# 🎯 LTI - Applicant Tracking System
 
-Es tu turno de probar los prompts que hemos dado como ejemplo para que empieces a coger soltura con el uso de asistentes de IA en esta primera fase del desarrollo de software.
+**El ATS del futuro impulsado por Inteligencia Artificial**
 
-En este ejercicio tu misión será diseñar y documentar un sistema de software siguiendo las fases de:
+[![Status](https://img.shields.io/badge/status-en%20diseño-blue.svg)]()
+[![License](https://img.shields.io/badge/license-MIT-green.svg)]()
+[![AI4Devs](https://img.shields.io/badge/AI4Devs-2026-purple.svg)]()
 
-- Investigación y análisis  
-- Casos de uso  
-- Modelado de datos  
-- Diseño de alto nivel
+[Documentación](#-documentación) •
+[Arquitectura](#-arquitectura) •
+[Contribuir](#-contribuir)
 
----
-
-### ¿Y qué sistema? El de **LTI**
-
-LTI es una startup que quiere desarrollar el **ATS (Applicant-Tracking System)** del futuro.
-
-Todavía no hay nada creado, así que toca ponerse el gorro de **product manager** y definir esas funcionalidades clave que harán brillar a LTI por encima de los competidores:
-
-- Aumentar la eficiencia para los departamentos de HR  
-- Mejorar la colaboración en tiempo real entre reclutadores y managers  
-- Automatizaciones  
-- Asistencia de IA en diversas tareas  
-
-Es el momento de hacer **brainstorming**, investigar cuáles pueden ser las claves del éxito, y dejarlo plasmado para el resto del equipo.
+</div>
 
 ---
 
-### Tu misión es diseñar la primera versión del sistema, entregando los siguientes artefactos:
+## 📋 Tabla de Contenidos
 
-- ✅ **Descripción breve del software LTI**, valor añadido y ventajas competitivas.  
-- ✅ **Explicación de las funciones principales.**  
-- ✅ **Añadir un diagrama Lean Canvas** para entender el modelo de negocio.  
-- ✅ **Descripción de los 3 casos de uso principales**, con el diagrama asociado a cada uno.  
-- ✅ **Modelo de datos** que cubra entidades, atributos (nombre y tipo) y relaciones.  
-- ✅ **Diseño del sistema a alto nivel**, tanto explicado como diagrama adjunto.  
-- ✅ **Diagrama C4** que llegue en profundidad a uno de los componentes del sistema, el que prefieras.  
-
-Utiliza el asistente que prefieras: ChatGPT, Google Gemini, Microsoft Copilot, Claude...
-
----
-
-### 📁 Entrega
-
-- Documenta todo en un único documento Markdown (`.md`) con el nombre:  
-  `LTI-iniciales` (ej. `LTI-ARM`).
-
-- Los prompts deben ir en un archivo aparte: `prompts.md`
-
-- Deja ambos archivos dentro de una carpeta con el mismo nombre (`LTI-iniciales`)  
-  y súbela al **repositorio GitHub** de este tema.
+- [Descripción](#-descripción)
+- [Características](#-características)
+- [Arquitectura](#-arquitectura)
+- [Estructura del Proyecto](#-estructura-del-proyecto)
+- [Documentación](#-documentación)
+- [Stack Tecnológico](#-stack-tecnológico)
+- [Contribuir](#-contribuir)
+- [Licencia](#-licencia)
+- [Autores](#-autores)
 
 ---
 
-### 📌 Notas importantes
+## 🚀 Descripción
 
-- El repositorio será **colaborativo**, iremos aceptando las pull requests para generar una base común con todas las carpetas.
+**LTI** es un sistema ATS (Applicant Tracking System) de nueva generación diseñado para startups tecnológicas globales que buscan optimizar sus procesos de reclutamiento.
 
-- Recuerda **actualizar a la última versión del repositorio** antes de lanzar tus cambios para no tener conflictos.
+### ¿Por qué LTI?
 
-- Si no sabes cómo mantenerte actualizado antes de publicar tu contenido y encontrarte con conflictos, **pregunta en el grupo de Whatsapp** o revisa documentación sobre git.
-
-- **No olvides añadir tus prompts en `prompts.md` dentro de tu carpeta.**
-
----
-
-### 🚀 ¡A por ello!
-
-# EN
-
-You've now learned the basics of software systems analysis and design, as well as some of the most relevant diagramming tools.
-
-It's your turn to try out the prompts we've provided as examples so you can start gaining confidence using AI assistants in this initial phase of software development.
-
-In this exercise your mission will be to design and document a software system following the phases of:
-
-- Research and analysis  
-- Use cases  
-- Data modeling  
-- High level design
+| Problema | Solución LTI |
+|----------|--------------|
+| Fragmentación de herramientas | Plataforma unificada para todo el ciclo de reclutamiento |
+| Procesos manuales repetitivos | Automatización inteligente con workflows no-code |
+| Decisiones sin contexto | IA explicable para matching y recomendaciones |
+| Falta de colaboración | Espacio centralizado para recruiters y hiring managers |
+| Mala experiencia del candidato | Self-service scheduling y comunicación fluida |
 
 ---
 
-### And what system? The **LTI** system.
+## ✨ Características
 
-LTI is a startup that wants to develop the **ATS (Applicant-Tracking System)** of the future.
+### Core Features
 
-Nothing's built yet, so it's time to put on your **product manager** hat and define those key features that will make LTI stand out from the competition:
+- **🤖 IA Asistiva y Explicable**
+  - Matching candidato-vacante con justificación transparente
+  - Generación automática de job descriptions
+  - Resúmenes inteligentes para hiring managers
+  - Preguntas de entrevista contextualizadas
 
-- Increasing efficiency for HR departments
-- Improve real-time collaboration between recruiters and managers 
-- Automations 
-- AI assistance in various tasks 
+- **📊 Pipeline Visual**
+  - Vista Kanban con drag & drop
+  - Etapas configurables por proceso
+  - Acciones rápidas sobre candidatos
+  - Visualización clara del funnel
 
-It's time to brainstorm, research what the keys to success might be, and write it down for the rest of the team.
+- **🔄 Automatización No-Code**
+  - Motor visual de workflows (trigger → acción)
+  - Secuencias de nurturing automatizadas
+  - Gestión inteligente de BBDD
 
----
+- **🤝 Colaboración en Tiempo Real**
+  - Comentarios en hilo por candidato
+  - Sistema de decisiones estructuradas
+  - Notificaciones integradas
 
-### Your mission is to design the first version of the system, delivering the following artifacts:
-
-- ✅ **Brief description of LTI software**, added value and competitive advantages.  
-- ✅ **Explanation of the main functions.**
-- ✅ **Add a Lean Canvas diagram** to understand the business model.  
-- ✅ **Description of the 3 main use cases**, with the diagram associated with each one. 
-- ✅ **Data model** that covers entities, attributes (name and type) and relationships.
-- ✅ **High-level system design**, both explained and with an attached diagram.  
-- ✅ **C4 diagram** that goes in depth into one of the system components, whichever you prefer.
-
-Use your preferred assistant: ChatGPT, Google Gemini, Microsoft Copilot, Claude...
-
----
-
-### 📁 Delivery
-
-- Document everything in a single Markdown document (`.md`) named: 
-  `LTI-iniciales` (ej. `LTI-ARM`).
-
-- Prompts must be in a separate file: `prompts.md`
-
-- Leave both files inside a folder with the same name (`LTI-initials`)  
-  and upload it to the **GitHub repository** of this topic.
+- **📅 Scheduling Inteligente**
+  - Self-service para candidatos
+  - Integración con Google/Outlook Calendar
+  - Paneles de entrevista predefinidos
 
 ---
 
-### 📌 Important notes  
+## 🏗 Arquitectura
 
-- The repository will be **collaborative**, we will accept pull requests to generate a common base with all the folders.
+El sistema sigue una **arquitectura de microservicios** desplegada en AWS:
 
-- Remember to **update to the latest version of the repository** before releasing your changes to avoid conflicts.
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    CLIENTES                                  │
+│  ┌──────────┐  ┌──────────────┐  ┌────────────────────┐     │
+│  │ Web App  │  │ Mobile App   │  │ Portal Candidato   │     │
+│  │ (React)  │  │(React Native)│  │    (Next.js)       │     │
+│  └──────────┘  └──────────────┘  └────────────────────┘     │
+└─────────────────────────────────────────────────────────────┘
+                            │
+                            ▼
+┌─────────────────────────────────────────────────────────────┐
+│  CloudFront (CDN) + WAF + API Gateway + Cognito (Auth)      │
+└─────────────────────────────────────────────────────────────┘
+                            │
+                            ▼
+┌─────────────────────────────────────────────────────────────┐
+│              MICROSERVICIOS (ECS Fargate)                   │
+│  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐       │
+│  │ Vacantes │ │Candidatos│ │Evaluación│ │Scheduling│       │
+│  └──────────┘ └──────────┘ └──────────┘ └──────────┘       │
+│  ┌──────────────────┐  ┌──────────────────────────┐        │
+│  │  Notificaciones  │  │  Servicio IA (Bedrock)   │        │
+│  └──────────────────┘  └──────────────────────────┘        │
+└─────────────────────────────────────────────────────────────┘
+                            │
+                            ▼
+┌─────────────────────────────────────────────────────────────┐
+│                    CAPA DE DATOS                             │
+│  ┌────────────────┐  ┌───────────┐  ┌──────────────────┐   │
+│  │ Aurora PostgreSQL│  │ ElastiCache│  │ S3 (Documentos)  │   │
+│  └────────────────┘  └───────────┘  └──────────────────┘   │
+└─────────────────────────────────────────────────────────────┘
+```
 
-- If you're not sure how to stay up-to-date before publishing your content and encountering conflicts, **ask in the WhatsApp group** or check out the Git documentation.
-
-- **Don't forget to add your prompts to `prompts.md` inside your folder.**
+> 📖 Ver [documentación de arquitectura completa](LTI-RVM/docs/architecture.md)
 
 ---
 
-### 🚀 Go for it!
+## 📁 Estructura del Proyecto
+
+```
+Ai4Devs-design1-2026-03-Senior/
+├── 📄 ReadMe.md                    # Este archivo
+├── 📁 context/                     # Investigación y contexto
+│   ├── ats-research.md             # Análisis de mercado ATS
+│   ├── ATSGeneralSpecs.md          # Especificaciones generales
+│   └── lean-canvas-ats.drawio      # Lean Canvas editable
+│
+└── 📁 LTI-RVM/                     # Diseño del sistema (Roger Vila)
+    ├── LTI-RVM.md                  # PRD - Product Requirements Document
+    ├── prompts.md                  # Prompts utilizados con IA
+    ├── UserStories-RVM.md          # Historias de usuario
+    ├── lean-canvas.png             # Lean Canvas exportado
+    │
+    ├── 📁 docs/                    # Documentación técnica
+    │   ├── architecture.md         # Arquitectura del sistema
+    │   ├── c4-diagrams.md          # Diagramas C4
+    │   ├── er-diagram.md           # Modelo de datos
+    │   └── use-cases.md            # Casos de uso detallados
+    │
+    ├── 📁 backlog/                 # Product Backlog
+    │   └── product-backlog.json    # Backlog estructurado
+    │
+    └── 📁 tasks/                   # Tareas técnicas por User Story
+        └── us-01-publicacion-vacante/
+            ├── T-001-migracion-bd-vacantes.md
+            ├── T-002-api-crud-vacantes.md
+            └── ...
+```
+
+---
+
+## 📚 Documentación
+
+| Documento | Descripción |
+|-----------|-------------|
+| [PRD - Product Requirements](LTI-RVM/LTI-RVM.md) | Requisitos del producto, funcionalidades y ventajas competitivas |
+| [Arquitectura](LTI-RVM/docs/architecture.md) | Diseño técnico del sistema y decisiones de arquitectura |
+| [Diagramas C4](LTI-RVM/docs/c4-diagrams.md) | Context, Container y Component diagrams |
+| [Modelo de Datos](LTI-RVM/docs/er-diagram.md) | Diagrama ER y descripción de entidades |
+| [Casos de Uso](LTI-RVM/docs/use-cases.md) | Casos de uso principales con diagramas |
+| [User Stories](LTI-RVM/UserStories-RVM.md) | Historias de usuario priorizadas |
+| [Product Backlog](LTI-RVM/backlog/product-backlog.json) | Backlog estructurado en JSON |
+
+---
+
+## 🛠 Stack Tecnológico
+
+### Frontend
+| Tecnología | Uso |
+|------------|-----|
+| React | Aplicación web principal |
+| React Native | Aplicación móvil |
+| Next.js | Portal del candidato (SSR) |
+
+### Backend
+| Tecnología | Uso |
+|------------|-----|
+| Node.js / Python | Microservicios |
+| Amazon ECS Fargate | Orquestación de contenedores |
+| Amazon API Gateway | Gestión de APIs |
+
+### Datos
+| Tecnología | Uso |
+|------------|-----|
+| Amazon Aurora PostgreSQL | Base de datos relacional |
+| Amazon ElastiCache Redis | Caché y sesiones |
+| Amazon S3 | Almacenamiento de documentos |
+| Amazon OpenSearch | Búsqueda semántica |
+
+### IA/ML
+| Tecnología | Uso |
+|------------|-----|
+| Amazon Bedrock | LLM para generación de contenido |
+| Amazon SageMaker | Modelos de scoring personalizados |
+
+### Infraestructura
+| Tecnología | Uso |
+|------------|-----|
+| AWS CDK | Infrastructure as Code |
+| Amazon CloudWatch | Observabilidad |
+| AWS X-Ray | Trazas distribuidas |
+
+---
+
+<div align="center">
+
+[⬆ Volver arriba](#-lti---applicant-tracking-system)
+
+</div>
 
 
 
